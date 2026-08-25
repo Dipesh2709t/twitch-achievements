@@ -1,0 +1,136 @@
+{
+  "updated": "2026-08-25T22:29:35.905Z",
+  "totalPlayers": 7,
+  "players": [
+    {
+      "username": "dipeshlovesbooby",
+      "balance": 275,
+      "achievementCount": 0,
+      "achievements": [],
+      "moneyRank": 1,
+      "achievementRank": 3
+    },
+    {
+      "username": "nickbrawls",
+      "balance": 224,
+      "achievementCount": 0,
+      "achievements": [],
+      "moneyRank": 2,
+      "achievementRank": 4
+    },
+    {
+      "username": "ti_84calculator",
+      "balance": 200,
+      "achievementCount": 0,
+      "achievements": [],
+      "moneyRank": 3,
+      "achievementRank": 7
+    },
+    {
+      "username": "darko217",
+      "balance": 200,
+      "achievementCount": 0,
+      "achievements": [],
+      "moneyRank": 4,
+      "achievementRank": 2
+    },
+    {
+      "username": "test",
+      "balance": 200,
+      "achievementCount": 0,
+      "achievements": [],
+      "moneyRank": 5,
+      "achievementRank": 6
+    },
+    {
+      "username": "creatisbot",
+      "balance": 189,
+      "achievementCount": 0,
+      "achievements": [],
+      "moneyRank": 6,
+      "achievementRank": 1
+    },
+    {
+      "username": "streamelements",
+      "balance": 146,
+      "achievementCount": 0,
+      "achievements": [],
+      "moneyRank": 7,
+      "achievementRank": 5
+    }
+  ],
+  "moneyLeaderboard": [
+    {
+      "username": "dipeshlovesbooby",
+      "balance": 275,
+      "rank": 1
+    },
+    {
+      "username": "nickbrawls",
+      "balance": 224,
+      "rank": 2
+    },
+    {
+      "username": "ti_84calculator",
+      "balance": 200,
+      "rank": 3
+    },
+    {
+      "username": "darko217",
+      "balance": 200,
+      "rank": 4
+    },
+    {
+      "username": "test",
+      "balance": 200,
+      "rank": 5
+    },
+    {
+      "username": "creatisbot",
+      "balance": 189,
+      "rank": 6
+    },
+    {
+      "username": "streamelements",
+      "balance": 146,
+      "rank": 7
+    }
+  ],
+  "achievementLeaderboard": [
+    {
+      "username": "creatisbot",
+      "completed": 0,
+      "rank": 1
+    },
+    {
+      "username": "darko217",
+      "completed": 0,
+      "rank": 2
+    },
+    {
+      "username": "dipeshlovesbooby",
+      "completed": 0,
+      "rank": 3
+    },
+    {
+      "username": "nickbrawls",
+      "completed": 0,
+      "rank": 4
+    },
+    {
+      "username": "streamelements",
+      "completed": 0,
+      "rank": 5
+    },
+    {
+      "username": "test",
+      "completed": 0,
+      "rank": 6
+    },
+    {
+      "username": "ti_84calculator",
+      "completed": 0,
+      "rank": 7
+    }
+  ]
+}
