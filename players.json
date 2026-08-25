@@ -1,6 +1,159 @@
 {
-  "updated": "2026-08-25T22:38:41.646Z",
+  "updated": "2026-08-25T22:40:24.394Z",
   "totalPlayers": 7,
+  "totalAchievements": 30,
+  "achievements": [
+    {
+      "id": "first_work",
+      "name": "First Paycheck",
+      "description": "Use !work once."
+    },
+    {
+      "id": "work_25",
+      "name": "Part-Time Employee",
+      "description": "Use !work 25 times."
+    },
+    {
+      "id": "work_100",
+      "name": "Full-Time Employee",
+      "description": "Use !work 100 times."
+    },
+    {
+      "id": "work_250",
+      "name": "Work Machine",
+      "description": "Use !work 250 times."
+    },
+    {
+      "id": "work_500",
+      "name": "Workaholic",
+      "description": "Use !work 500 times."
+    },
+    {
+      "id": "work_1000",
+      "name": "Corporate Slave",
+      "description": "Use !work 1,000 times."
+    },
+    {
+      "id": "work_1000_money",
+      "name": "Overtime",
+      "description": "Earn $1,000 from !work."
+    },
+    {
+      "id": "work_5000_money",
+      "name": "Career Employee",
+      "description": "Earn $5,000 from !work."
+    },
+    {
+      "id": "work_10000_money",
+      "name": "Workaholic Deluxe",
+      "description": "Earn $10,000 from !work."
+    },
+    {
+      "id": "scam_1",
+      "name": "First Scam",
+      "description": "Successfully scam someone."
+    },
+    {
+      "id": "scam_10",
+      "name": "Rookie Scammer",
+      "description": "Successfully scam 10 people."
+    },
+    {
+      "id": "scam_25",
+      "name": "Con Artist",
+      "description": "Successfully scam 25 people."
+    },
+    {
+      "id": "scam_100",
+      "name": "Scam Factory",
+      "description": "Successfully scam 100 people."
+    },
+    {
+      "id": "scam_250",
+      "name": "Professional Criminal",
+      "description": "Successfully scam 250 people."
+    },
+    {
+      "id": "scam_money_1000",
+      "name": "Dirty Business",
+      "description": "Steal $1,000 through scams."
+    },
+    {
+      "id": "scam_money_10000",
+      "name": "Scam Tycoon",
+      "description": "Steal $10,000 through scams."
+    },
+    {
+      "id": "big_score",
+      "name": "Big Score",
+      "description": "Successfully scam $100 in one attempt."
+    },
+    {
+      "id": "report_1",
+      "name": "Caught in 4K",
+      "description": "Get reported once."
+    },
+    {
+      "id": "report_10",
+      "name": "Repeat Offender",
+      "description": "Get reported 10 times."
+    },
+    {
+      "id": "report_50",
+      "name": "Public Enemy",
+      "description": "Get reported 50 times."
+    },
+    {
+      "id": "negative",
+      "name": "Rock Bottom",
+      "description": "Reach a negative balance."
+    },
+    {
+      "id": "comeback",
+      "name": "Comeback Kid",
+      "description": "Recover from negative balance to $200+."
+    },
+    {
+      "id": "balance_500",
+      "name": "Getting Rich",
+      "description": "Reach $500."
+    },
+    {
+      "id": "balance_1000",
+      "name": "Big Money",
+      "description": "Reach $1,000."
+    },
+    {
+      "id": "balance_5000",
+      "name": "High Roller",
+      "description": "Reach $5,000."
+    },
+    {
+      "id": "top5",
+      "name": "Top 5",
+      "description": "Reach the top 5 on the money leaderboard."
+    },
+    {
+      "id": "king",
+      "name": "Money King",
+      "description": "Reach #1 on the money leaderboard."
+    },
+    {
+      "id": "lucky50",
+      "name": "Lucky Worker",
+      "description": "Receive a $50 lucky payout."
+    },
+    {
+      "id": "lucky100",
+      "name": "Very Lucky",
+      "description": "Receive a $100 lucky payout."
+    },
+    {
+      "id": "jackpot",
+      "name": "Jackpot!",
+      "description": "Hit the $150 work jackpot."
+    }
+  ],
   "players": [
     {
       "username": "dipeshlovesbooby",
