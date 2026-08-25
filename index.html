@@ -7,7 +7,6 @@
 <title>Twitch Economy</title>
 
 <style>
-
 * {
   box-sizing: border-box;
 }
@@ -20,25 +19,23 @@ body {
 }
 
 .container {
-  width: 100%;
   max-width: 700px;
   margin: auto;
-  padding: 18px;
+  padding: 16px;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .header h1 {
   margin: 0;
-  font-size: 28px;
+  font-size: 27px;
 }
 
 .header p {
-  color: #aaa;
-  margin-top: 8px;
+  color: #999;
 }
 
 .search {
@@ -49,10 +46,10 @@ body {
 input {
   width: 100%;
   padding: 15px;
-  border-radius: 12px;
-  border: 1px solid #333;
   background: #18181b;
   color: white;
+  border: 1px solid #333;
+  border-radius: 12px;
   font-size: 16px;
   outline: none;
 }
@@ -63,14 +60,14 @@ input:focus {
 
 .suggestions {
   position: absolute;
-  top: 54px;
   left: 0;
   right: 0;
+  top: 55px;
   background: #18181b;
   border: 1px solid #333;
   border-radius: 10px;
   overflow: hidden;
-  z-index: 10;
+  z-index: 100;
 }
 
 .suggestion {
@@ -82,6 +79,21 @@ input:focus {
   background: #27272a;
 }
 
+.loading {
+  text-align: center;
+  color: #aaa;
+  padding: 30px;
+}
+
+.error {
+  display: none;
+  background: #3b1717;
+  color: #ff9999;
+  padding: 14px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
 .player {
   display: none;
 }
@@ -90,19 +102,20 @@ input:focus {
   background: #18181b;
   border-radius: 14px;
   padding: 18px;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .player-name {
   font-size: 24px;
   font-weight: bold;
+  margin-bottom: 15px;
 }
 
 .stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
-  margin-top: 15px;
+  margin-top: 8px;
 }
 
 .stat {
@@ -113,34 +126,41 @@ input:focus {
 }
 
 .number {
-  font-size: 21px;
+  font-size: 20px;
   font-weight: bold;
 }
 
 .label {
   color: #999;
-  font-size: 11px;
+  font-size: 10px;
   margin-top: 5px;
 }
 
+.section-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 18px 0 10px;
+}
+
 .achievement {
-  padding: 14px;
   background: #18181b;
   border-radius: 10px;
+  padding: 14px;
   margin-bottom: 8px;
   border-left: 5px solid #444;
 }
 
-.completed {
+.achievement.completed {
   border-left-color: #9147ff;
 }
 
-.locked {
+.achievement.locked {
   opacity: 0.45;
 }
 
 .achievement-name {
   font-weight: bold;
+  font-size: 15px;
 }
 
 .description {
@@ -149,22 +169,7 @@ input:focus {
   margin-top: 5px;
 }
 
-.loading {
-  text-align: center;
-  color: #aaa;
-  padding: 30px;
-}
-
-.error {
-  background: #3f1d1d;
-  color: #ff9999;
-  padding: 15px;
-  border-radius: 10px;
-  display: none;
-}
-
-@media (max-width: 600px) {
-
+@media(max-width:600px) {
   .container {
     padding: 12px;
   }
@@ -172,13 +177,7 @@ input:focus {
   .stats {
     grid-template-columns: 1fr;
   }
-
-  .header h1 {
-    font-size: 24px;
-  }
-
 }
-
 </style>
 </head>
 
@@ -187,15 +186,9 @@ input:focus {
 <div class="container">
 
   <div class="header">
-
     <h1>🏆 Twitch Economy</h1>
-
-    <p>
-      Search your username to view your economy stats
-    </p>
-
+    <p>Search your username</p>
   </div>
-
 
   <div class="search">
 
@@ -214,143 +207,63 @@ input:focus {
 
   </div>
 
+  <div id="error" class="error"></div>
 
-  <div
-    id="error"
-    class="error"
-  ></div>
-
-
-  <div
-    id="loading"
-    class="loading"
-  >
+  <div id="loading" class="loading">
     Loading players...
   </div>
 
-
-  <div
-    id="player"
-    class="player"
-  >
+  <div id="player" class="player">
 
     <div class="card">
 
-      <div
-        id="playerName"
-        class="player-name"
-      ></div>
-
+      <div id="playerName" class="player-name"></div>
 
       <div class="stats">
 
         <div class="stat">
-
-          <div
-            id="balance"
-            class="number"
-          >
-            $0
-          </div>
-
-          <div class="label">
-            BALANCE
-          </div>
-
+          <div id="balance" class="number">$0</div>
+          <div class="label">BALANCE</div>
         </div>
 
-
         <div class="stat">
-
-          <div
-            id="moneyRank"
-            class="number"
-          >
-            #-
-          </div>
-
-          <div class="label">
-            MONEY RANK
-          </div>
-
+          <div id="moneyRank" class="number">#-</div>
+          <div class="label">MONEY RANK</div>
         </div>
 
-
         <div class="stat">
-
-          <div
-            id="achievementRank"
-            class="number"
-          >
-            #-
-          </div>
-
-          <div class="label">
-            ACHIEVEMENT RANK
-          </div>
-
+          <div id="achievementRank" class="number">#-</div>
+          <div class="label">ACHIEVEMENT RANK</div>
         </div>
 
       </div>
 
-
       <div class="stats">
 
         <div class="stat">
-
-          <div
-            id="completed"
-            class="number"
-          >
-            0
-          </div>
-
-          <div class="label">
-            ACHIEVEMENTS
-          </div>
-
+          <div id="completed" class="number">0</div>
+          <div class="label">COMPLETED</div>
         </div>
 
-
         <div class="stat">
-
-          <div
-            id="total"
-            class="number"
-          >
-            0
-          </div>
-
-          <div class="label">
-            TOTAL
-          </div>
-
+          <div id="total" class="number">0</div>
+          <div class="label">TOTAL</div>
         </div>
 
-
         <div class="stat">
-
-          <div
-            id="percentage"
-            class="number"
-          >
-            0%
-          </div>
-
-          <div class="label">
-            COMPLETION
-          </div>
-
+          <div id="percentage" class="number">0%</div>
+          <div class="label">COMPLETION</div>
         </div>
 
       </div>
 
     </div>
 
+    <div class="section-title">
+      🏆 Achievements
+    </div>
 
-    <div
-      id="achievements"
-    ></div>
+    <div id="achievements"></div>
 
   </div>
 
@@ -359,75 +272,85 @@ input:focus {
 
 <script>
 
-const DATA_URL = "players.json";
+var DATA_URL = "players.json";
 
-let data = null;
+var data = null;
+var players = [];
 
-let players = [];
-
-
-const search =
+var search =
   document.getElementById("search");
 
-const suggestions =
+var suggestions =
   document.getElementById("suggestions");
 
-const loading =
+var loading =
   document.getElementById("loading");
 
-const error =
+var error =
   document.getElementById("error");
 
-const player =
+var player =
   document.getElementById("player");
 
 
 /* ==========================================
-   LOAD DATA
+   LOAD JSON
 ========================================== */
 
-fetch(DATA_URL + "?t=" + Date.now())
+fetch(
+  DATA_URL + "?v=" + Date.now(),
+  {
+    cache: "no-store"
+  }
+)
 
-  .then(function(response) {
+.then(function(response) {
 
-    if (!response.ok) {
+  if (!response.ok) {
+    throw new Error(
+      "players.json could not be loaded."
+    );
+  }
 
-      throw new Error(
-        "Could not load players.json"
-      );
+  return response.json();
 
-    }
+})
 
-    return response.json();
+.then(function(json) {
 
-  })
+  data = json;
 
-  .then(function(json) {
+  players =
+    Array.isArray(data.players)
+      ? data.players
+      : [];
 
-    data = json;
+  loading.style.display = "none";
 
-    players =
-      data.players || [];
+  console.log(
+    "Loaded players:",
+    players.length
+  );
 
-    loading.style.display =
-      "none";
+  console.log(
+    "Achievements:",
+    data.achievements
+  );
 
-  })
+})
 
-  .catch(function(err) {
+.catch(function(err) {
 
-    loading.style.display =
-      "none";
+  loading.style.display = "none";
 
-    error.style.display =
-      "block";
+  error.style.display = "block";
 
-    error.textContent =
-      "Unable to load player data.";
+  error.textContent =
+    "Unable to load player data.";
 
-    console.error(err);
+  console.error(err);
 
-  });
+});
 
 
 /* ==========================================
@@ -438,14 +361,12 @@ search.addEventListener(
   "input",
   function() {
 
-    const value =
+    var value =
       search.value
         .trim()
         .toLowerCase();
 
-
     suggestions.innerHTML = "";
-
 
     if (!value) {
 
@@ -456,12 +377,11 @@ search.addEventListener(
 
     }
 
-
-    const matches =
+    var matches =
       players
         .filter(function(p) {
 
-          return p.username
+          return String(p.username)
             .toLowerCase()
             .includes(value);
 
@@ -479,41 +399,35 @@ search.addEventListener(
     }
 
 
-    matches.forEach(
-      function(p) {
+    matches.forEach(function(p) {
 
-        const div =
-          document.createElement(
-            "div"
-          );
+      var div =
+        document.createElement("div");
 
-        div.className =
-          "suggestion";
+      div.className =
+        "suggestion";
 
-        div.textContent =
-          p.username;
+      div.textContent =
+        p.username;
 
 
-        div.addEventListener(
-          "click",
-          function() {
+      div.onclick =
+        function() {
 
-            search.value =
-              p.username;
+          search.value =
+            p.username;
 
-            suggestions.style.display =
-              "none";
+          suggestions.style.display =
+            "none";
 
-            showPlayer(p.username);
+          showPlayer(p.username);
 
-          }
-        );
+        };
 
 
-        suggestions.appendChild(div);
+      suggestions.appendChild(div);
 
-      }
-    );
+    });
 
 
     suggestions.style.display =
@@ -529,16 +443,15 @@ search.addEventListener(
 
 function showPlayer(username) {
 
-  const found =
-    players.find(
-      function(p) {
+  var found =
+    players.find(function(p) {
 
-        return p.username
-          .toLowerCase() ===
-          username.toLowerCase();
+      return String(p.username)
+        .toLowerCase() ===
+        String(username)
+          .toLowerCase();
 
-      }
-    );
+    });
 
 
   if (!found) {
@@ -574,7 +487,7 @@ function showPlayer(username) {
     "balance"
   ).textContent =
     "$" +
-    Number(found.balance)
+    Number(found.balance || 0)
       .toLocaleString();
 
 
@@ -582,39 +495,41 @@ function showPlayer(username) {
     "moneyRank"
   ).textContent =
     "#" +
-    found.moneyRank +
+    (found.moneyRank || "-") +
     "/" +
-    data.totalPlayers;
+    (data.totalPlayers || players.length);
 
 
   document.getElementById(
     "achievementRank"
   ).textContent =
     "#" +
-    found.achievementRank +
+    (found.achievementRank || "-") +
     "/" +
-    data.totalPlayers;
+    (data.totalPlayers || players.length);
 
 
   document.getElementById(
     "completed"
   ).textContent =
-    found.achievementCount;
+    found.achievementCount || 0;
 
 
   document.getElementById(
     "total"
   ).textContent =
-    data.totalAchievements;
+    data.totalAchievements || 0;
 
 
-  const percentage =
-    data.totalAchievements > 0
-      ? Math.round(
-          found.achievementCount /
-          data.totalAchievements *
-          100
-        )
+  var total =
+    Number(data.totalAchievements || 0);
+
+  var count =
+    Number(found.achievementCount || 0);
+
+  var percentage =
+    total > 0
+      ? Math.round(count / total * 100)
       : 0;
 
 
@@ -624,106 +539,129 @@ function showPlayer(username) {
     percentage + "%";
 
 
-  const achievementContainer =
+  renderAchievements(found);
+
+}
+
+
+/* ==========================================
+   RENDER ACHIEVEMENTS
+========================================== */
+
+function renderAchievements(found) {
+
+  var container =
     document.getElementById(
       "achievements"
     );
 
-
-  achievementContainer.innerHTML =
-    "";
+  container.innerHTML = "";
 
 
-  if (
-    found.achievements &&
-    found.achievements.length
-  ) {
+  var definitions =
+    Array.isArray(data.achievements)
+      ? data.achievements
+      : [];
 
-    data.players
-      .find(
-        function(p) {
-          return p.username ===
-            found.username;
-        }
+
+  var completedIDs =
+    Array.isArray(found.achievements)
+      ? found.achievements
+      : [];
+
+
+  /*
+    Make the completed IDs easier to check.
+  */
+
+  var completedMap = {};
+
+  completedIDs.forEach(function(id) {
+
+    completedMap[String(id).trim()] =
+      true;
+
+  });
+
+
+  /*
+    Create every achievement.
+  */
+
+  definitions.forEach(function(a) {
+
+    var id =
+      String(a.id).trim();
+
+    var isComplete =
+      completedMap[id] === true;
+
+
+    var div =
+      document.createElement("div");
+
+
+    div.className =
+      "achievement " +
+      (
+        isComplete
+          ? "completed"
+          : "locked"
       );
 
-  }
+
+    var name =
+      document.createElement("div");
+
+    name.className =
+      "achievement-name";
+
+
+    name.textContent =
+      (
+        isComplete
+          ? "✅ "
+          : "🔒 "
+      ) +
+      a.name;
+
+
+    var description =
+      document.createElement("div");
+
+    description.className =
+      "description";
+
+    description.textContent =
+      a.description;
+
+
+    div.appendChild(name);
+
+    div.appendChild(description);
+
+    container.appendChild(div);
+
+  });
 
 
   /*
-     We don't need the full achievement
-     definitions from GitHub here.
-     The achievement IDs stored in
-     players.json are enough to mark
-     completed achievements.
+    If no definitions were included
+    in players.json, tell us why.
   */
 
+  if (!definitions.length) {
 
-  const completedIDs =
-    found.achievements || [];
+    var message =
+      document.createElement("div");
 
+    message.className =
+      "achievement locked";
 
-  /*
-     Build achievement list from the
-     definitions included in the JSON.
-  */
+    message.textContent =
+      "Achievement definitions were not found in players.json.";
 
-
-  if (
-    data.achievements &&
-    data.achievements.length
-  ) {
-
-    data.achievements.forEach(
-      function(a) {
-
-        const isComplete =
-          completedIDs.indexOf(
-            a.id
-          ) !== -1;
-
-
-        const div =
-          document.createElement(
-            "div"
-          );
-
-
-        div.className =
-          "achievement " +
-          (
-            isComplete
-              ? "completed"
-              : "locked"
-          );
-
-
-        div.innerHTML =
-
-          "<div class='achievement-name'>" +
-
-          (
-            isComplete
-              ? "✅ "
-              : "🔒 "
-          ) +
-
-          escapeHTML(a.name) +
-
-          "</div>" +
-
-          "<div class='description'>" +
-
-          escapeHTML(a.description) +
-
-          "</div>";
-
-
-        achievementContainer
-          .appendChild(div);
-
-      }
-    );
+    container.appendChild(message);
 
   }
 
@@ -731,28 +669,7 @@ function showPlayer(username) {
 
 
 /* ==========================================
-   HTML ESCAPE
-========================================== */
-
-function escapeHTML(value) {
-
-  return String(value)
-
-    .replace(/&/g, "&amp;")
-
-    .replace(/</g, "&lt;")
-
-    .replace(/>/g, "&gt;")
-
-    .replace(/"/g, "&quot;")
-
-    .replace(/'/g, "&#039;");
-
-}
-
-
-/* ==========================================
-   CLOSE SUGGESTIONS
+   HIDE SUGGESTIONS
 ========================================== */
 
 document.addEventListener(
@@ -760,9 +677,7 @@ document.addEventListener(
   function(event) {
 
     if (
-      !event.target.closest(
-        ".search"
-      )
+      !event.target.closest(".search")
     ) {
 
       suggestions.style.display =
