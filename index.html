@@ -14,26 +14,27 @@
 
 body {
     margin: 0;
-    padding: 15px;
+    padding: 12px;
     background: #0e0e10;
-    color: white;
+    color: #fff;
     font-family: Arial, sans-serif;
 }
 
 .container {
-    max-width: 850px;
+    max-width: 800px;
     margin: auto;
 }
 
-.header {
+.card {
     background: #18181b;
-    border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 15px;
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 12px;
 }
 
 h1 {
-    margin: 0 0 8px;
+    margin: 0 0 5px;
+    font-size: 24px;
 }
 
 .subtitle {
@@ -43,85 +44,80 @@ h1 {
 .stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 8px;
     margin-top: 18px;
 }
 
 .stat {
     background: #27272a;
-    padding: 15px;
+    padding: 12px;
     border-radius: 10px;
     text-align: center;
 }
 
-.number {
-    font-size: 23px;
+.stat-number {
+    font-size: 21px;
     font-weight: bold;
 }
 
-.label {
+.stat-label {
     color: #aaa;
-    font-size: 13px;
+    font-size: 12px;
     margin-top: 4px;
 }
 
 .achievement {
     background: #18181b;
-    border-radius: 12px;
-    padding: 15px;
-    margin-bottom: 10px;
+    border-radius: 11px;
+    padding: 14px;
+    margin-bottom: 8px;
+    border-left: 5px solid #444;
 }
 
 .completed {
-    border-left: 5px solid #9147ff;
+    border-left-color: #9147ff;
 }
 
 .locked {
-    border-left: 5px solid #444;
     opacity: .55;
 }
 
-.title {
-    font-size: 17px;
+.achievement-name {
     font-weight: bold;
+    font-size: 16px;
 }
 
 .description {
     color: #aaa;
+    font-size: 13px;
     margin-top: 5px;
-}
-
-.badge {
-    color: #9147ff;
-    font-size: 12px;
-    margin-left: 7px;
 }
 
 .loading {
     text-align: center;
-    padding: 40px;
     color: #aaa;
+    padding: 40px 10px;
 }
 
 .error {
-    background: #3b1616;
-    padding: 20px;
+    background: #351717;
+    color: #ff9999;
+    padding: 18px;
     border-radius: 10px;
-    color: #ff8a8a;
 }
 
 @media (max-width: 600px) {
 
     body {
-        padding: 10px;
+        padding: 8px;
     }
 
     .stats {
         grid-template-columns: 1fr;
     }
 
-    .header {
-        padding: 16px;
+    h1 {
+        font-size: 21px;
     }
 
 }
@@ -133,255 +129,267 @@ h1 {
 
 <div class="container">
 
-<div class="header">
+    <div class="card">
 
-<h1 id="username">
-🏆 Achievements
-</h1>
+        <h1 id="username">
+            🏆 Loading...
+        </h1>
 
-<div class="subtitle">
-Twitch Economy Achievement Profile
-</div>
+        <div class="subtitle">
+            Twitch Economy Achievements
+        </div>
 
-<div class="stats">
+        <div class="stats">
 
-<div class="stat">
-<div class="number" id="completed">-</div>
-<div class="label">Completed</div>
-</div>
+            <div class="stat">
+                <div class="stat-number" id="completed">-</div>
+                <div class="stat-label">
+                    Completed
+                </div>
+            </div>
 
-<div class="stat">
-<div class="number" id="rank">-</div>
-<div class="label">Achievement Rank</div>
-</div>
+            <div class="stat">
+                <div class="stat-number" id="rank">-</div>
+                <div class="stat-label">
+                    Achievement Rank
+                </div>
+            </div>
 
-<div class="stat">
-<div class="number" id="percentage">-</div>
-<div class="label">Completion</div>
-</div>
+            <div class="stat">
+                <div class="stat-number" id="percentage">-</div>
+                <div class="stat-label">
+                    Completion
+                </div>
+            </div>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
-<div id="content">
+    <div id="achievements">
 
-<div class="loading">
-Loading achievements...
-</div>
+        <div class="loading">
+            Loading achievements...
+        </div>
 
-</div>
+    </div>
 
 </div>
 
 
 <script>
 
-/*
-YOUR APPS SCRIPT API
-*/
+/* YOUR GOOGLE APPS SCRIPT */
 
 const API =
 "https://script.google.com/macros/s/AKfycbyR4bHCR53b_YaZ-JWMXUkYfz4knsp2jVMaA2vceFEGnv0PMjsVYW3euc_jyMvhHPkY/exec";
 
 
-/*
-30 ACHIEVEMENTS
-*/
+/* ACHIEVEMENTS */
 
-const achievements = [
+const ACHIEVEMENTS = [
 
-["First Paycheck","Use !work once."],
-["Part-Time Employee","Use !work 25 times."],
-["Full-Time Employee","Use !work 100 times."],
-["Work Machine","Use !work 250 times."],
-["Workaholic","Use !work 500 times."],
-["Corporate Slave","Use !work 1,000 times."],
+["First Paycheck", "Use !work once."],
+["Part-Time Employee", "Use !work 25 times."],
+["Full-Time Employee", "Use !work 100 times."],
+["Work Machine", "Use !work 250 times."],
+["Workaholic", "Use !work 500 times."],
+["Corporate Slave", "Use !work 1,000 times."],
 
-["Overtime","Earn $1,000 from !work."],
-["Career Employee","Earn $5,000 from !work."],
-["Workaholic Deluxe","Earn $10,000 from !work."],
+["Overtime", "Earn $1,000 from !work."],
+["Career Employee", "Earn $5,000 from !work."],
+["Workaholic Deluxe", "Earn $10,000 from !work."],
 
-["First Scam","Successfully scam someone."],
-["Rookie Scammer","Successfully scam 10 people."],
-["Con Artist","Successfully scam 25 people."],
-["Scam Factory","Successfully scam 100 people."],
-["Professional Criminal","Successfully scam 250 people."],
+["First Scam", "Successfully scam someone."],
+["Rookie Scammer", "Successfully scam 10 people."],
+["Con Artist", "Successfully scam 25 people."],
+["Scam Factory", "Successfully scam 100 people."],
+["Professional Criminal", "Successfully scam 250 people."],
 
-["Dirty Business","Steal $1,000 through scams."],
-["Scam Tycoon","Steal $10,000 through scams."],
+["Dirty Business", "Steal $1,000 through scams."],
+["Scam Tycoon", "Steal $10,000 through scams."],
 
-["Big Score","Successfully scam $100 in one attempt."],
+["Big Score", "Successfully scam $100 in one attempt."],
 
-["Caught in 4K","Get reported once."],
-["Repeat Offender","Get reported 10 times."],
-["Public Enemy","Get reported 50 times."],
+["Caught in 4K", "Get reported once."],
+["Repeat Offender", "Get reported 10 times."],
+["Public Enemy", "Get reported 50 times."],
 
-["Rock Bottom","Reach a negative balance."],
-["Comeback Kid","Recover from negative balance to $200+."],
+["Rock Bottom", "Reach a negative balance."],
+["Comeback Kid", "Recover from negative balance to $200+."],
 
-["Getting Rich","Reach $500."],
-["Big Money","Reach $1,000."],
-["High Roller","Reach $5,000."],
+["Getting Rich", "Reach $500."],
+["Big Money", "Reach $1,000."],
+["High Roller", "Reach $5,000."],
 
-["Top 5","Reach the top 5."],
-["Money King","Reach #1."],
+["Top 5", "Reach the top 5."],
+["Money King", "Reach #1."],
 
-["Lucky Worker","Receive a $50 lucky payout."],
-["Very Lucky","Receive a $100 lucky payout."],
-["Jackpot!","Hit the $150 work jackpot."]
+["Lucky Worker", "Receive a $50 lucky payout."],
+["Very Lucky", "Receive a $100 lucky payout."],
+["Jackpot!", "Hit the $150 work jackpot."]
 
 ];
 
 
-/*
-GET USER FROM URL
-*/
+/* GET USER FROM URL */
 
 const params =
 new URLSearchParams(
-window.location.search
+    window.location.search
 );
 
 const user =
 (
-params.get("user") ||
-"test"
-)
-.toLowerCase();
+    params.get("user") ||
+    "test"
+).trim();
 
 
-/*
-LOAD DATA
-*/
+/* ESCAPE HTML */
 
-async function loadData() {
+function escapeHTML(text) {
 
-    try {
-
-        const url =
-            API +
-            "?action=player&user=" +
-            encodeURIComponent(user);
-
-
-        const response =
-            await fetch(url);
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                "API returned " +
-                response.status
-            );
-
-        }
-
-
-        const data =
-            await response.json();
-
-
-        console.log(
-            "API DATA:",
-            data
-        );
-
-
-        if (data.error) {
-
-            throw new Error(
-                data.error
-            );
-
-        }
-
-
-        display(data);
-
-    }
-
-    catch(error) {
-
-        console.error(error);
-
-        document.getElementById(
-            "content"
-        ).innerHTML =
-
-        "<div class='error'>" +
-
-        "❌ Could not load achievement data.<br><br>" +
-
-        error.message +
-
-        "</div>";
-
-    }
+    return String(text)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
 
 }
 
 
-/*
-DISPLAY DATA
-*/
+/* LOAD */
 
-function display(data) {
+function loadAchievements() {
+
+    const url =
+        API +
+        "?action=player&user=" +
+        encodeURIComponent(user);
+
+
+    fetch(url)
+
+        .then(function(response) {
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Server returned " +
+                    response.status
+                );
+
+            }
+
+            return response.json();
+
+        })
+
+        .then(function(data) {
+
+            console.log(data);
+
+            if (data.error) {
+
+                throw new Error(
+                    data.error
+                );
+
+            }
+
+            showData(data);
+
+        })
+
+        .catch(function(error) {
+
+            console.error(error);
+
+            document.getElementById(
+                "achievements"
+            ).innerHTML =
+
+                "<div class='error'>" +
+
+                "❌ Unable to load achievements.<br><br>" +
+
+                escapeHTML(
+                    error.message
+                ) +
+
+                "<br><br>" +
+
+                "Try refreshing the page."
+
+                +
+
+                "</div>";
+
+        });
+
+}
+
+
+/* DISPLAY */
+
+function showData(data) {
 
     const completed =
-        Number(
-            data.completed || 0
-        );
-
+        Number(data.completed || 0);
 
     const total =
         Number(
             data.total ||
-            achievements.length
+            ACHIEVEMENTS.length
         );
 
-
     const rank =
-        data.rank ||
-        "-";
+        data.rank || "-";
+
+    const percentage =
+        Math.round(
+            completed /
+            total *
+            100
+        );
 
 
     document.getElementById(
         "username"
     ).textContent =
 
-    "🏆 " +
-    data.username +
-    "'s Achievements";
+        "🏆 " +
+        escapeHTML(
+            data.username
+        ) +
+        "'s Achievements";
 
 
     document.getElementById(
         "completed"
     ).textContent =
 
-    completed +
-    "/" +
-    total;
+        completed +
+        "/" +
+        total;
 
 
     document.getElementById(
         "rank"
     ).textContent =
 
-    rank === "-"
-        ? "-"
-        : "#" + rank;
+        rank === "-"
+            ? "-"
+            : "#" + rank;
 
 
     document.getElementById(
         "percentage"
     ).textContent =
 
-    Math.round(
-        (completed / total) *
-        100
-    ) + "%";
+        percentage + "%";
 
 
     const states =
@@ -391,64 +399,63 @@ function display(data) {
     let html = "";
 
 
-    achievements.forEach(
-        function(achievement, i) {
+    ACHIEVEMENTS.forEach(
+        function(achievement, index) {
 
-            const unlocked =
-                states[i] === true;
+            const done =
+                states[index] === true;
 
 
             html +=
 
-            "<div class='achievement " +
+                "<div class='achievement " +
 
-            (
-                unlocked
-                    ? "completed"
-                    : "locked"
-            ) +
+                (
+                    done
+                        ? "completed"
+                        : "locked"
+                ) +
 
-            "'>" +
+                "'>" +
 
-            "<div class='title'>" +
+                "<div class='achievement-name'>" +
 
-            (
-                unlocked
-                    ? "✅ "
-                    : "🔒 "
-            ) +
+                (
+                    done
+                        ? "✅ "
+                        : "🔒 "
+                ) +
 
-            achievement[0] +
+                escapeHTML(
+                    achievement[0]
+                ) +
 
-            (
-                unlocked
-                    ? "<span class='badge'>COMPLETED</span>"
-                    : ""
-            ) +
+                "</div>" +
 
-            "</div>" +
+                "<div class='description'>" +
 
-            "<div class='description'>" +
+                escapeHTML(
+                    achievement[1]
+                ) +
 
-            achievement[1] +
+                "</div>" +
 
-            "</div>" +
-
-            "</div>";
+                "</div>";
 
         }
     );
 
 
     document.getElementById(
-        "content"
-    ).innerHTML =
-        html;
+        "achievements"
+    ).innerHTML = html;
 
 }
 
 
-loadData();
+/* START */
+
+loadAchievements();
 
 </script>
 
