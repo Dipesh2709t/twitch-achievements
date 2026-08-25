@@ -1,194 +1,393 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
 
 <title>Twitch Economy</title>
 
 <style>
+
 * {
   box-sizing: border-box;
 }
 
 body {
+
   margin: 0;
+
   background: #0e0e10;
+
   color: white;
-  font-family: Arial, sans-serif;
+
+  font-family:
+    Arial,
+    sans-serif;
+
 }
 
 .container {
+
+  width: 100%;
+
   max-width: 700px;
+
   margin: auto;
+
   padding: 16px;
+
 }
 
 .header {
+
   text-align: center;
+
   margin-bottom: 20px;
+
 }
 
 .header h1 {
+
   margin: 0;
+
   font-size: 27px;
+
 }
 
 .header p {
+
   color: #999;
+
 }
 
 .search {
+
   position: relative;
+
   margin-bottom: 20px;
+
 }
 
 input {
+
   width: 100%;
+
   padding: 15px;
+
   background: #18181b;
+
   color: white;
+
   border: 1px solid #333;
+
   border-radius: 12px;
+
   font-size: 16px;
+
   outline: none;
+
 }
 
 input:focus {
+
   border-color: #9147ff;
+
 }
 
 .suggestions {
+
   position: absolute;
+
   left: 0;
+
   right: 0;
+
   top: 55px;
+
   background: #18181b;
+
   border: 1px solid #333;
+
   border-radius: 10px;
+
   overflow: hidden;
+
   z-index: 100;
+
 }
 
 .suggestion {
+
   padding: 13px;
+
   cursor: pointer;
+
 }
 
 .suggestion:hover {
+
   background: #27272a;
+
 }
 
 .loading {
+
   text-align: center;
+
   color: #aaa;
+
   padding: 30px;
+
 }
 
 .error {
+
   display: none;
+
   background: #3b1717;
+
   color: #ff9999;
+
   padding: 14px;
+
   border-radius: 10px;
+
   margin-bottom: 15px;
+
 }
 
 .player {
+
   display: none;
+
 }
 
 .card {
+
   background: #18181b;
+
   border-radius: 14px;
+
   padding: 18px;
+
   margin-bottom: 14px;
+
 }
 
 .player-name {
+
   font-size: 24px;
+
   font-weight: bold;
+
   margin-bottom: 15px;
+
 }
 
 .stats {
+
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
   gap: 8px;
+
   margin-top: 8px;
+
 }
 
 .stat {
+
   background: #27272a;
+
   border-radius: 10px;
+
   padding: 12px;
+
   text-align: center;
+
 }
 
 .number {
+
   font-size: 20px;
+
   font-weight: bold;
+
 }
 
 .label {
+
   color: #999;
+
   font-size: 10px;
+
   margin-top: 5px;
+
 }
 
 .section-title {
+
   font-size: 20px;
+
   font-weight: bold;
-  margin: 18px 0 10px;
+
+  margin: 20px 0 10px;
+
 }
 
 .achievement {
+
   background: #18181b;
+
   border-radius: 10px;
+
   padding: 14px;
+
   margin-bottom: 8px;
+
   border-left: 5px solid #444;
+
 }
 
 .achievement.completed {
+
   border-left-color: #9147ff;
+
 }
 
 .achievement.locked {
+
   opacity: 0.45;
+
 }
 
 .achievement-name {
+
   font-weight: bold;
+
   font-size: 15px;
+
 }
 
 .description {
+
   color: #999;
+
   font-size: 13px;
+
   margin-top: 5px;
+
+}
+
+.progress-container {
+
+  margin-top: 10px;
+
+}
+
+.progress-text {
+
+  font-size: 12px;
+
+  color: #aaa;
+
+  margin-bottom: 5px;
+
+}
+
+.progress-bar {
+
+  width: 100%;
+
+  height: 8px;
+
+  background: #27272a;
+
+  border-radius: 10px;
+
+  overflow: hidden;
+
+}
+
+.progress-fill {
+
+  height: 100%;
+
+  background: #9147ff;
+
+  border-radius: 10px;
+
+  transition:
+    width 0.3s ease;
+
+}
+
+.completed .progress-fill {
+
+  background: #00c853;
+
+}
+
+.complete-text {
+
+  color: #00c853;
+
+  font-size: 12px;
+
+  font-weight: bold;
+
+  margin-top: 6px;
+
 }
 
 @media(max-width:600px) {
+
   .container {
+
     padding: 12px;
+
   }
 
   .stats {
-    grid-template-columns: 1fr;
+
+    grid-template-columns:
+      1fr;
+
   }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <div class="container">
 
+
   <div class="header">
-    <h1>🏆 Twitch Economy</h1>
-    <p>Search your username</p>
+
+    <h1>
+      🏆 Twitch Economy
+    </h1>
+
+    <p>
+      Search your username
+    </p>
+
   </div>
+
 
   <div class="search">
 
@@ -207,155 +406,289 @@ input:focus {
 
   </div>
 
-  <div id="error" class="error"></div>
 
-  <div id="loading" class="loading">
+  <div
+    id="error"
+    class="error"
+  ></div>
+
+
+  <div
+    id="loading"
+    class="loading"
+  >
     Loading players...
   </div>
 
-  <div id="player" class="player">
+
+  <div
+    id="player"
+    class="player"
+  >
+
 
     <div class="card">
 
-      <div id="playerName" class="player-name"></div>
+
+      <div
+        id="playerName"
+        class="player-name"
+      ></div>
+
 
       <div class="stats">
 
-        <div class="stat">
-          <div id="balance" class="number">$0</div>
-          <div class="label">BALANCE</div>
-        </div>
 
         <div class="stat">
-          <div id="moneyRank" class="number">#-</div>
-          <div class="label">MONEY RANK</div>
+
+          <div
+            id="balance"
+            class="number"
+          >
+            $0
+          </div>
+
+          <div class="label">
+            BALANCE
+          </div>
+
         </div>
 
+
         <div class="stat">
-          <div id="achievementRank" class="number">#-</div>
-          <div class="label">ACHIEVEMENT RANK</div>
+
+          <div
+            id="moneyRank"
+            class="number"
+          >
+            #-
+          </div>
+
+          <div class="label">
+            MONEY RANK
+          </div>
+
         </div>
+
+
+        <div class="stat">
+
+          <div
+            id="achievementRank"
+            class="number"
+          >
+            #-
+          </div>
+
+          <div class="label">
+            ACHIEVEMENT RANK
+          </div>
+
+        </div>
+
 
       </div>
+
 
       <div class="stats">
 
-        <div class="stat">
-          <div id="completed" class="number">0</div>
-          <div class="label">COMPLETED</div>
-        </div>
 
         <div class="stat">
-          <div id="total" class="number">0</div>
-          <div class="label">TOTAL</div>
+
+          <div
+            id="completed"
+            class="number"
+          >
+            0
+          </div>
+
+          <div class="label">
+            COMPLETED
+          </div>
+
         </div>
 
+
         <div class="stat">
-          <div id="percentage" class="number">0%</div>
-          <div class="label">COMPLETION</div>
+
+          <div
+            id="total"
+            class="number"
+          >
+            0
+          </div>
+
+          <div class="label">
+            TOTAL
+          </div>
+
         </div>
+
+
+        <div class="stat">
+
+          <div
+            id="percentage"
+            class="number"
+          >
+            0%
+          </div>
+
+          <div class="label">
+            COMPLETION
+          </div>
+
+        </div>
+
 
       </div>
+
 
     </div>
+
 
     <div class="section-title">
       🏆 Achievements
     </div>
 
-    <div id="achievements"></div>
+
+    <div
+      id="achievements"
+    ></div>
+
 
   </div>
+
 
 </div>
 
 
 <script>
 
-var DATA_URL = "players.json";
+
+var DATA_URL =
+  "players.json";
+
 
 var data = null;
+
 var players = [];
 
+
 var search =
-  document.getElementById("search");
+  document.getElementById(
+    "search"
+  );
+
 
 var suggestions =
-  document.getElementById("suggestions");
+  document.getElementById(
+    "suggestions"
+  );
+
 
 var loading =
-  document.getElementById("loading");
+  document.getElementById(
+    "loading"
+  );
+
 
 var error =
-  document.getElementById("error");
+  document.getElementById(
+    "error"
+  );
+
 
 var player =
-  document.getElementById("player");
+  document.getElementById(
+    "player"
+  );
 
 
-/* ==========================================
-   LOAD JSON
-========================================== */
+/* =====================================================
+   LOAD DATA
+===================================================== */
 
 fetch(
-  DATA_URL + "?v=" + Date.now(),
+  DATA_URL +
+  "?v=" +
+  Date.now(),
   {
     cache: "no-store"
   }
 )
 
-.then(function(response) {
+.then(
+  function(response) {
 
-  if (!response.ok) {
-    throw new Error(
-      "players.json could not be loaded."
-    );
+    if (!response.ok) {
+
+      throw new Error(
+        "Could not load players.json"
+      );
+
+    }
+
+    return response.json();
+
   }
+)
 
-  return response.json();
+.then(
+  function(json) {
 
-})
+    data = json;
 
-.then(function(json) {
-
-  data = json;
-
-  players =
-    Array.isArray(data.players)
-      ? data.players
-      : [];
-
-  loading.style.display = "none";
-
-  console.log(
-    "Loaded players:",
-    players.length
-  );
-
-  console.log(
-    "Achievements:",
-    data.achievements
-  );
-
-})
-
-.catch(function(err) {
-
-  loading.style.display = "none";
-
-  error.style.display = "block";
-
-  error.textContent =
-    "Unable to load player data.";
-
-  console.error(err);
-
-});
+    players =
+      Array.isArray(
+        data.players
+      )
+        ? data.players
+        : [];
 
 
-/* ==========================================
+    loading.style.display =
+      "none";
+
+
+    console.log(
+      "Players:",
+      players.length
+    );
+
+
+    console.log(
+      "Achievements:",
+      data.achievements
+    );
+
+  }
+)
+
+.catch(
+  function(err) {
+
+    loading.style.display =
+      "none";
+
+
+    error.style.display =
+      "block";
+
+
+    error.textContent =
+      "Unable to load player data.";
+
+
+    console.error(err);
+
+  }
+);
+
+
+/* =====================================================
    SEARCH
-========================================== */
+===================================================== */
 
 search.addEventListener(
   "input",
@@ -366,7 +699,10 @@ search.addEventListener(
         .trim()
         .toLowerCase();
 
-    suggestions.innerHTML = "";
+
+    suggestions.innerHTML =
+      "";
+
 
     if (!value) {
 
@@ -377,15 +713,20 @@ search.addEventListener(
 
     }
 
+
     var matches =
       players
-        .filter(function(p) {
+        .filter(
+          function(p) {
 
-          return String(p.username)
+            return String(
+              p.username
+            )
             .toLowerCase()
             .includes(value);
 
-        })
+          }
+        )
         .slice(0, 8);
 
 
@@ -399,35 +740,47 @@ search.addEventListener(
     }
 
 
-    matches.forEach(function(p) {
+    matches.forEach(
+      function(p) {
 
-      var div =
-        document.createElement("div");
-
-      div.className =
-        "suggestion";
-
-      div.textContent =
-        p.username;
+        var div =
+          document.createElement(
+            "div"
+          );
 
 
-      div.onclick =
-        function() {
-
-          search.value =
-            p.username;
-
-          suggestions.style.display =
-            "none";
-
-          showPlayer(p.username);
-
-        };
+        div.className =
+          "suggestion";
 
 
-      suggestions.appendChild(div);
+        div.textContent =
+          p.username;
 
-    });
+
+        div.onclick =
+          function() {
+
+            search.value =
+              p.username;
+
+
+            suggestions.style.display =
+              "none";
+
+
+            showPlayer(
+              p.username
+            );
+
+          };
+
+
+        suggestions.appendChild(
+          div
+        );
+
+      }
+    );
 
 
     suggestions.style.display =
@@ -437,21 +790,27 @@ search.addEventListener(
 );
 
 
-/* ==========================================
+/* =====================================================
    SHOW PLAYER
-========================================== */
+===================================================== */
 
-function showPlayer(username) {
+function showPlayer(
+  username
+) {
 
   var found =
-    players.find(function(p) {
+    players.find(
+      function(p) {
 
-      return String(p.username)
+        return String(
+          p.username
+        )
         .toLowerCase() ===
         String(username)
           .toLowerCase();
 
-    });
+      }
+    );
 
 
   if (!found) {
@@ -459,11 +818,14 @@ function showPlayer(username) {
     player.style.display =
       "none";
 
+
     error.style.display =
       "block";
 
+
     error.textContent =
       "Player not found.";
+
 
     return;
 
@@ -472,6 +834,7 @@ function showPlayer(username) {
 
   error.style.display =
     "none";
+
 
   player.style.display =
     "block";
@@ -487,49 +850,77 @@ function showPlayer(username) {
     "balance"
   ).textContent =
     "$" +
-    Number(found.balance || 0)
-      .toLocaleString();
+    Number(
+      found.balance || 0
+    )
+    .toLocaleString();
 
 
   document.getElementById(
     "moneyRank"
   ).textContent =
     "#" +
-    (found.moneyRank || "-") +
+    (
+      found.moneyRank ||
+      "-"
+    ) +
     "/" +
-    (data.totalPlayers || players.length);
+    (
+      data.totalPlayers ||
+      players.length
+    );
 
 
   document.getElementById(
     "achievementRank"
   ).textContent =
     "#" +
-    (found.achievementRank || "-") +
+    (
+      found.achievementRank ||
+      "-"
+    ) +
     "/" +
-    (data.totalPlayers || players.length);
+    (
+      data.totalPlayers ||
+      players.length
+    );
 
 
   document.getElementById(
     "completed"
   ).textContent =
-    found.achievementCount || 0;
+    found.achievementCount ||
+    0;
 
 
   document.getElementById(
     "total"
   ).textContent =
-    data.totalAchievements || 0;
+    data.totalAchievements ||
+    0;
 
 
   var total =
-    Number(data.totalAchievements || 0);
+    Number(
+      data.totalAchievements ||
+      0
+    );
+
 
   var count =
-    Number(found.achievementCount || 0);
+    Number(
+      found.achievementCount ||
+      0
+    );
+
 
   var percentage =
     total > 0
-      ? Math.round(count / total * 100)
+      ? Math.round(
+          count /
+          total *
+          100
+        )
       : 0;
 
 
@@ -539,145 +930,406 @@ function showPlayer(username) {
     percentage + "%";
 
 
-  renderAchievements(found);
+  renderAchievements(
+    found
+  );
 
 }
 
 
-/* ==========================================
+/* =====================================================
    RENDER ACHIEVEMENTS
-========================================== */
+===================================================== */
 
-function renderAchievements(found) {
+function renderAchievements(
+  found
+) {
 
   var container =
     document.getElementById(
       "achievements"
     );
 
-  container.innerHTML = "";
+
+  container.innerHTML =
+    "";
 
 
   var definitions =
-    Array.isArray(data.achievements)
+    Array.isArray(
+      data.achievements
+    )
       ? data.achievements
       : [];
 
 
+  /*
+    New format:
+
+    player.achievementProgress = [
+
+      {
+        id: "work_25",
+        progress: 17,
+        goal: 25,
+        completed: false
+      }
+
+    ]
+  */
+
+
+  var progressList =
+    Array.isArray(
+      found.achievementProgress
+    )
+      ? found.achievementProgress
+      : [];
+
+
+  var progressMap = {};
+
+
+  progressList.forEach(
+    function(item) {
+
+      progressMap[
+        String(item.id)
+      ] =
+        item;
+
+    }
+  );
+
+
+  /*
+    Compatibility with the old format.
+  */
+
   var completedIDs =
-    Array.isArray(found.achievements)
+    Array.isArray(
+      found.achievements
+    )
       ? found.achievements
       : [];
 
 
-  /*
-    Make the completed IDs easier to check.
-  */
+  definitions.forEach(
+    function(a) {
 
-  var completedMap = {};
-
-  completedIDs.forEach(function(id) {
-
-    completedMap[String(id).trim()] =
-      true;
-
-  });
+      var item =
+        progressMap[
+          String(a.id)
+        ];
 
 
-  /*
-    Create every achievement.
-  */
+      var progress = 0;
 
-  definitions.forEach(function(a) {
+      var goal =
+        Number(a.goal) || 1;
 
-    var id =
-      String(a.id).trim();
-
-    var isComplete =
-      completedMap[id] === true;
+      var completed =
+        false;
 
 
-    var div =
-      document.createElement("div");
+      if (item) {
+
+        progress =
+          Number(
+            item.progress
+          ) || 0;
 
 
-    div.className =
-      "achievement " +
-      (
-        isComplete
-          ? "completed"
-          : "locked"
+        goal =
+          Number(
+            item.goal
+          ) ||
+          Number(a.goal) ||
+          1;
+
+
+        completed =
+          Boolean(
+            item.completed
+          );
+
+      }
+
+
+      /*
+        Old data fallback.
+      */
+
+      if (!item) {
+
+        completed =
+          completedIDs.indexOf(
+            a.id
+          ) !== -1;
+
+
+        progress =
+          completed
+            ? goal
+            : 0;
+
+      }
+
+
+      /*
+        Keep progress between
+        0 and goal.
+      */
+
+      progress =
+        Math.max(
+          0,
+          Math.min(
+            progress,
+            goal
+          )
+        );
+
+
+      var percentage =
+        goal > 0
+          ? Math.round(
+              progress /
+              goal *
+              100
+            )
+          : 0;
+
+
+      var div =
+        document.createElement(
+          "div"
+        );
+
+
+      div.className =
+        "achievement " +
+        (
+          completed
+            ? "completed"
+            : "locked"
+        );
+
+
+      var name =
+        document.createElement(
+          "div"
+        );
+
+
+      name.className =
+        "achievement-name";
+
+
+      name.textContent =
+        (
+          completed
+            ? "✅ "
+            : "🔒 "
+        ) +
+        a.name;
+
+
+      var description =
+        document.createElement(
+          "div"
+        );
+
+
+      description.className =
+        "description";
+
+
+      description.textContent =
+        a.description;
+
+
+      var progressContainer =
+        document.createElement(
+          "div"
+        );
+
+
+      progressContainer.className =
+        "progress-container";
+
+
+      var progressText =
+        document.createElement(
+          "div"
+        );
+
+
+      progressText.className =
+        "progress-text";
+
+
+      progressText.textContent =
+        formatNumber(
+          progress
+        ) +
+        " / " +
+        formatNumber(
+          goal
+        ) +
+        " (" +
+        percentage +
+        "%)";
+
+
+      var progressBar =
+        document.createElement(
+          "div"
+        );
+
+
+      progressBar.className =
+        "progress-bar";
+
+
+      var progressFill =
+        document.createElement(
+          "div"
+        );
+
+
+      progressFill.className =
+        "progress-fill";
+
+
+      progressFill.style.width =
+        percentage + "%";
+
+
+      progressBar.appendChild(
+        progressFill
       );
 
 
-    var name =
-      document.createElement("div");
-
-    name.className =
-      "achievement-name";
+      progressContainer.appendChild(
+        progressText
+      );
 
 
-    name.textContent =
-      (
-        isComplete
-          ? "✅ "
-          : "🔒 "
-      ) +
-      a.name;
+      progressContainer.appendChild(
+        progressBar
+      );
 
 
-    var description =
-      document.createElement("div");
-
-    description.className =
-      "description";
-
-    description.textContent =
-      a.description;
+      div.appendChild(
+        name
+      );
 
 
-    div.appendChild(name);
-
-    div.appendChild(description);
-
-    container.appendChild(div);
-
-  });
+      div.appendChild(
+        description
+      );
 
 
-  /*
-    If no definitions were included
-    in players.json, tell us why.
-  */
+      div.appendChild(
+        progressContainer
+      );
+
+
+      if (completed) {
+
+        var completeText =
+          document.createElement(
+            "div"
+          );
+
+
+        completeText.className =
+          "complete-text";
+
+
+        completeText.textContent =
+          "✓ COMPLETE";
+
+
+        div.appendChild(
+          completeText
+        );
+
+      }
+
+
+      container.appendChild(
+        div
+      );
+
+    }
+  );
+
 
   if (!definitions.length) {
 
     var message =
-      document.createElement("div");
+      document.createElement(
+        "div"
+      );
+
 
     message.className =
       "achievement locked";
 
-    message.textContent =
-      "Achievement definitions were not found in players.json.";
 
-    container.appendChild(message);
+    message.textContent =
+      "Achievement definitions were not found.";
+
+
+    container.appendChild(
+      message
+    );
 
   }
 
 }
 
 
-/* ==========================================
+/* =====================================================
+   NUMBER FORMAT
+===================================================== */
+
+function formatNumber(
+  value
+) {
+
+  var number =
+    Number(value);
+
+
+  if (
+    !isFinite(number)
+  ) {
+
+    return "0";
+
+  }
+
+
+  return number.toLocaleString();
+
+}
+
+
+/* =====================================================
    HIDE SUGGESTIONS
-========================================== */
+===================================================== */
 
 document.addEventListener(
   "click",
   function(event) {
 
     if (
-      !event.target.closest(".search")
+      !event.target.closest(
+        ".search"
+      )
     ) {
 
       suggestions.style.display =
@@ -691,4 +1343,5 @@ document.addEventListener(
 </script>
 
 </body>
+
 </html>
