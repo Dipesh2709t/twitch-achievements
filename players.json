@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-26T07:14:11.823Z",
+  "updated": "2026-08-26T07:19:43.992Z",
   "totalPlayers": 7,
   "totalAchievements": 30,
   "achievements": [
@@ -217,7 +217,7 @@
   "players": [
     {
       "username": "dipeshlovesbooby",
-      "balance": 135,
+      "balance": 65,
       "moneyRank": 7,
       "achievementProgress": [
         {
@@ -387,7 +387,7 @@
           "name": "Repeat Offender",
           "description": "Get reported 10 times.",
           "type": "reports",
-          "progress": 2,
+          "progress": 3,
           "goal": 10,
           "completed": false
         },
@@ -396,7 +396,7 @@
           "name": "Public Enemy",
           "description": "Get reported 50 times.",
           "type": "reports",
-          "progress": 2,
+          "progress": 3,
           "goal": 50,
           "completed": false
         },
@@ -2213,7 +2213,7 @@
     },
     {
       "username": "dipeshlovesbooby",
-      "balance": 135,
+      "balance": 65,
       "rank": 7
     }
   ],
