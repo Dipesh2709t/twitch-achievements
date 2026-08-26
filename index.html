@@ -10,7 +10,7 @@
   content="width=device-width, initial-scale=1.0"
 >
 
-<title>Twitch Economy</title>
+<title>Twitch Achievements</title>
 
 <style>
 
@@ -22,71 +22,110 @@ body {
 
   margin: 0;
 
-  background: #0e0e10;
-
-  color: white;
+  min-height: 100vh;
 
   font-family:
+    Inter,
     Arial,
     sans-serif;
 
+  color: #ffffff;
+
+  background:
+    radial-gradient(
+      circle at top,
+      #24114f 0%,
+      #120a24 45%,
+      #080510 100%
+    );
+
 }
+
+
+/* ================================================
+   CONTAINER
+================================================ */
 
 .container {
 
-  width: 100%;
-
-  max-width: 700px;
+  width: min(
+    1100px,
+    calc(100% - 30px)
+  );
 
   margin: auto;
 
-  padding: 16px;
+  padding: 40px 0 70px;
 
 }
+
+
+/* ================================================
+   HEADER
+================================================ */
 
 .header {
 
   text-align: center;
 
-  margin-bottom: 20px;
+  margin-bottom: 35px;
 
 }
 
-.header h1 {
+.logo {
+
+  font-size: 48px;
+
+  margin-bottom: 8px;
+
+}
+
+h1 {
 
   margin: 0;
 
-  font-size: 27px;
+  font-size: 38px;
 
 }
 
-.header p {
+.subtitle {
 
-  color: #999;
+  margin-top: 10px;
 
-}
-
-.search {
-
-  position: relative;
-
-  margin-bottom: 20px;
+  color: #aaa3bb;
 
 }
 
-input {
 
-  width: 100%;
+/* ================================================
+   SEARCH
+================================================ */
 
-  padding: 15px;
+.search-box {
 
-  background: #18181b;
+  display: flex;
 
-  color: white;
+  gap: 10px;
 
-  border: 1px solid #333;
+  max-width: 650px;
+
+  margin: 30px auto;
+
+}
+
+.search-box input {
+
+  flex: 1;
+
+  padding: 16px 18px;
 
   border-radius: 12px;
+
+  border: 1px solid #3b2b55;
+
+  background: #130d20;
+
+  color: white;
 
   font-size: 16px;
 
@@ -94,269 +133,463 @@ input {
 
 }
 
-input:focus {
+.search-box input:focus {
 
   border-color: #9147ff;
 
-}
-
-.suggestions {
-
-  position: absolute;
-
-  left: 0;
-
-  right: 0;
-
-  top: 55px;
-
-  background: #18181b;
-
-  border: 1px solid #333;
-
-  border-radius: 10px;
-
-  overflow: hidden;
-
-  z-index: 100;
+  box-shadow:
+    0 0 0 3px
+    rgba(145,71,255,.15);
 
 }
 
-.suggestion {
+.search-box button {
 
-  padding: 13px;
+  border: 0;
+
+  border-radius: 12px;
+
+  padding: 0 25px;
+
+  background: #9147ff;
+
+  color: white;
+
+  font-weight: bold;
+
+  font-size: 16px;
 
   cursor: pointer;
 
 }
 
-.suggestion:hover {
+.search-box button:hover {
 
-  background: #27272a;
-
-}
-
-.loading {
-
-  text-align: center;
-
-  color: #aaa;
-
-  padding: 30px;
+  background: #a970ff;
 
 }
 
-.error {
 
-  display: none;
+/* ================================================
+   PROFILE
+================================================ */
 
-  background: #3b1717;
-
-  color: #ff9999;
-
-  padding: 14px;
-
-  border-radius: 10px;
-
-  margin-bottom: 15px;
-
-}
-
-.player {
+.profile {
 
   display: none;
 
 }
 
-.card {
+.profile.active {
 
-  background: #18181b;
-
-  border-radius: 14px;
-
-  padding: 18px;
-
-  margin-bottom: 14px;
+  display: block;
 
 }
 
-.player-name {
 
-  font-size: 24px;
+.profile-card {
 
-  font-weight: bold;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(145,71,255,.18),
+      rgba(20,12,35,.9)
+    );
 
-  margin-bottom: 15px;
+  border: 1px solid #392651;
+
+  border-radius: 20px;
+
+  padding: 28px;
+
+  margin-bottom: 25px;
+
+  box-shadow:
+    0 15px 50px
+    rgba(0,0,0,.25);
 
 }
+
+.profile-name {
+
+  font-size: 30px;
+
+  font-weight: 800;
+
+  margin-bottom: 20px;
+
+}
+
 
 .stats {
 
   display: grid;
 
   grid-template-columns:
-    repeat(3, 1fr);
+    repeat(
+      3,
+      1fr
+    );
 
-  gap: 8px;
-
-  margin-top: 8px;
+  gap: 15px;
 
 }
+
 
 .stat {
 
-  background: #27272a;
+  background: #120b1d;
 
-  border-radius: 10px;
+  border: 1px solid #30203f;
 
-  padding: 12px;
+  border-radius: 14px;
 
-  text-align: center;
-
-}
-
-.number {
-
-  font-size: 20px;
-
-  font-weight: bold;
+  padding: 18px;
 
 }
 
-.label {
+.stat-label {
 
-  color: #999;
-
-  font-size: 10px;
-
-  margin-top: 5px;
-
-}
-
-.section-title {
-
-  font-size: 20px;
-
-  font-weight: bold;
-
-  margin: 20px 0 10px;
-
-}
-
-.achievement {
-
-  background: #18181b;
-
-  border-radius: 10px;
-
-  padding: 14px;
-
-  margin-bottom: 8px;
-
-  border-left: 5px solid #444;
-
-}
-
-.achievement.completed {
-
-  border-left-color: #9147ff;
-
-}
-
-.achievement.locked {
-
-  opacity: 0.45;
-
-}
-
-.achievement-name {
-
-  font-weight: bold;
-
-  font-size: 15px;
-
-}
-
-.description {
-
-  color: #999;
+  color: #9991a9;
 
   font-size: 13px;
 
-  margin-top: 5px;
+  margin-bottom: 7px;
 
 }
 
-.progress-container {
+.stat-value {
 
-  margin-top: 10px;
+  font-size: 24px;
 
-}
-
-.progress-text {
-
-  font-size: 12px;
-
-  color: #aaa;
-
-  margin-bottom: 5px;
+  font-weight: 800;
 
 }
 
-.progress-bar {
 
-  width: 100%;
+/* ================================================
+   PROGRESS SUMMARY
+================================================ */
 
-  height: 8px;
+.summary {
 
-  background: #27272a;
+  margin-top: 25px;
 
-  border-radius: 10px;
+}
+
+.summary-top {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-bottom: 9px;
+
+  color: #cfc8d8;
+
+}
+
+.progress {
+
+  height: 12px;
+
+  background: #21162d;
+
+  border-radius: 20px;
 
   overflow: hidden;
 
 }
 
-.progress-fill {
+.progress-bar {
+
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #9147ff,
+      #c084ff
+    );
+
+  border-radius: 20px;
+
+  transition:
+    width .5s ease;
+
+}
+
+
+/* ================================================
+   FILTERS
+================================================ */
+
+.filters {
+
+  display: flex;
+
+  gap: 10px;
+
+  margin: 25px 0;
+
+  flex-wrap: wrap;
+
+}
+
+.filter {
+
+  border: 1px solid #3b2b55;
+
+  background: #120b1d;
+
+  color: #bbb2c8;
+
+  padding: 9px 15px;
+
+  border-radius: 20px;
+
+  cursor: pointer;
+
+}
+
+.filter.active {
+
+  background: #9147ff;
+
+  color: white;
+
+  border-color: #9147ff;
+
+}
+
+
+/* ================================================
+   ACHIEVEMENTS
+================================================ */
+
+.achievements {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      1fr
+    );
+
+  gap: 15px;
+
+}
+
+.achievement {
+
+  background: #120b1d;
+
+  border: 1px solid #30203f;
+
+  border-radius: 16px;
+
+  padding: 20px;
+
+  transition:
+    transform .15s,
+    border-color .15s;
+
+}
+
+.achievement:hover {
+
+  transform:
+    translateY(-2px);
+
+  border-color: #614187;
+
+}
+
+.achievement.completed {
+
+  border-color:
+    rgba(
+      145,
+      71,
+      255,
+      .6
+    );
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(145,71,255,.13),
+      #120b1d
+    );
+
+}
+
+.achievement-title {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+}
+
+.achievement-icon {
+
+  font-size: 23px;
+
+}
+
+.achievement-description {
+
+  color: #9d95a8;
+
+  margin: 9px 0 15px;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+
+}
+
+.achievement-progress {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  font-size: 13px;
+
+  color: #aaa2b5;
+
+  margin-bottom: 7px;
+
+}
+
+.achievement-progress-bar {
+
+  height: 8px;
+
+  background: #21162d;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+}
+
+.achievement-progress-fill {
 
   height: 100%;
 
   background: #9147ff;
 
-  border-radius: 10px;
-
-  transition:
-    width 0.3s ease;
+  border-radius: 20px;
 
 }
 
-.completed .progress-fill {
+.completed
+.achievement-progress-fill {
 
-  background: #00c853;
-
-}
-
-.complete-text {
-
-  color: #00c853;
-
-  font-size: 12px;
-
-  font-weight: bold;
-
-  margin-top: 6px;
+  background:
+    linear-gradient(
+      90deg,
+      #7b35d9,
+      #b66cff
+    );
 
 }
 
-@media(max-width:600px) {
+
+/* ================================================
+   LOADING / ERROR
+================================================ */
+
+.message {
+
+  text-align: center;
+
+  color: #aaa3b0;
+
+  padding: 40px;
+
+}
+
+.error {
+
+  color: #ff6b81;
+
+}
+
+
+/* ================================================
+   FOOTER
+================================================ */
+
+.footer {
+
+  text-align: center;
+
+  color: #625b6b;
+
+  margin-top: 50px;
+
+  font-size: 13px;
+
+}
+
+
+/* ================================================
+   MOBILE
+================================================ */
+
+@media (
+  max-width: 700px
+) {
 
   .container {
 
-    padding: 12px;
+    padding-top: 25px;
+
+  }
+
+  h1 {
+
+    font-size: 30px;
+
+  }
+
+  .logo {
+
+    font-size: 38px;
+
+  }
+
+  .search-box {
+
+    flex-direction: column;
+
+  }
+
+  .search-box button {
+
+    padding: 14px;
 
   }
 
   .stats {
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+  .achievements {
 
     grid-template-columns:
       1fr;
@@ -372,193 +605,204 @@ input:focus {
 
 <body>
 
-
 <div class="container">
 
 
   <div class="header">
 
+    <div class="logo">
+      🏆
+    </div>
+
     <h1>
-      🏆 Twitch Economy
+      Twitch Achievements
     </h1>
 
-    <p>
-      Search your username
-    </p>
+    <div class="subtitle">
+      Track your economy progress
+    </div>
 
   </div>
 
 
-  <div class="search">
+  <!-- SEARCH -->
+
+  <div class="search-box">
 
     <input
-      id="search"
+      id="usernameInput"
       type="text"
-      placeholder="Search username..."
+      placeholder="Search Twitch username..."
       autocomplete="off"
     >
 
-    <div
-      id="suggestions"
-      class="suggestions"
-      style="display:none;"
-    ></div>
+    <button
+      onclick="searchPlayer()"
+    >
+      Search
+    </button>
 
   </div>
 
 
   <div
-    id="error"
-    class="error"
-  ></div>
-
-
-  <div
-    id="loading"
-    class="loading"
+    id="message"
+    class="message"
   >
-    Loading players...
+    Search for a Twitch username to view achievements.
   </div>
 
 
+  <!-- PROFILE -->
+
   <div
-    id="player"
-    class="player"
+    id="profile"
+    class="profile"
   >
 
-
-    <div class="card">
-
+    <div class="profile-card">
 
       <div
-        id="playerName"
-        class="player-name"
+        id="profileName"
+        class="profile-name"
       ></div>
 
 
       <div class="stats">
 
-
         <div class="stat">
+
+          <div class="stat-label">
+            BALANCE
+          </div>
 
           <div
             id="balance"
-            class="number"
+            class="stat-value"
           >
             $0
           </div>
 
-          <div class="label">
-            BALANCE
-          </div>
-
         </div>
 
 
         <div class="stat">
 
-          <div
-            id="moneyRank"
-            class="number"
-          >
-            #-
-          </div>
-
-          <div class="label">
+          <div class="stat-label">
             MONEY RANK
           </div>
 
-        </div>
-
-
-        <div class="stat">
-
           <div
-            id="achievementRank"
-            class="number"
+            id="moneyRank"
+            class="stat-value"
           >
             #-
           </div>
 
-          <div class="label">
-            ACHIEVEMENT RANK
+        </div>
+
+
+        <div class="stat">
+
+          <div class="stat-label">
+            ACHIEVEMENTS
+          </div>
+
+          <div
+            id="achievementCount"
+            class="stat-value"
+          >
+            0/0
           </div>
 
         </div>
-
 
       </div>
 
 
-      <div class="stats">
+      <div class="summary">
 
+        <div class="summary-top">
 
-        <div class="stat">
+          <span>
+            Overall Progress
+          </span>
 
-          <div
-            id="completed"
-            class="number"
-          >
-            0
-          </div>
-
-          <div class="label">
-            COMPLETED
-          </div>
-
-        </div>
-
-
-        <div class="stat">
-
-          <div
-            id="total"
-            class="number"
-          >
-            0
-          </div>
-
-          <div class="label">
-            TOTAL
-          </div>
-
-        </div>
-
-
-        <div class="stat">
-
-          <div
+          <span
             id="percentage"
-            class="number"
           >
             0%
-          </div>
-
-          <div class="label">
-            COMPLETION
-          </div>
+          </span>
 
         </div>
 
+        <div class="progress">
+
+          <div
+            id="overallBar"
+            class="progress-bar"
+            style="width:0%"
+          ></div>
+
+        </div>
 
       </div>
 
+    </div>
+
+
+    <!-- FILTERS -->
+
+    <div class="filters">
+
+      <button
+        class="filter active"
+        data-filter="all"
+        onclick="setFilter('all', this)"
+      >
+        All
+      </button>
+
+      <button
+        class="filter"
+        data-filter="completed"
+        onclick="setFilter('completed', this)"
+      >
+        Completed
+      </button>
+
+      <button
+        class="filter"
+        data-filter="progress"
+        onclick="setFilter('progress', this)"
+      >
+        In Progress
+      </button>
+
+      <button
+        class="filter"
+        data-filter="locked"
+        onclick="setFilter('locked', this)"
+      >
+        Locked
+      </button>
 
     </div>
 
 
-    <div class="section-title">
-      🏆 Achievements
-    </div>
-
+    <!-- ACHIEVEMENTS -->
 
     <div
       id="achievements"
+      class="achievements"
     ></div>
-
 
   </div>
 
+
+  <div class="footer">
+    Twitch Economy • Achievement Dashboard
+  </div>
 
 </div>
 
@@ -566,373 +810,297 @@ input:focus {
 <script>
 
 
-var DATA_URL =
-  "players.json";
+/* =====================================================
+   APPS SCRIPT URL
+===================================================== */
 
-
-var data = null;
-
-var players = [];
-
-
-var search =
-  document.getElementById(
-    "search"
-  );
-
-
-var suggestions =
-  document.getElementById(
-    "suggestions"
-  );
-
-
-var loading =
-  document.getElementById(
-    "loading"
-  );
-
-
-var error =
-  document.getElementById(
-    "error"
-  );
-
-
-var player =
-  document.getElementById(
-    "player"
-  );
+const API_URL =
+  "https://script.google.com/macros/s/AKfycbyR4bHCR53b_YaZ-JWMXUkYfz4knsp2jVMaA2vceFEGnv0PMjsVYW3euc_jyMvhHPkY/exec";
 
 
 /* =====================================================
-   LOAD DATA
+   STATE
 ===================================================== */
 
-fetch(
-  DATA_URL +
-  "?v=" +
-  Date.now(),
-  {
-    cache: "no-store"
-  }
-)
+let currentPlayer = null;
 
-.then(
-  function(response) {
+let currentFilter = "all";
 
-    if (!response.ok) {
 
-      throw new Error(
-        "Could not load players.json"
+/* =====================================================
+   FORMAT MONEY
+===================================================== */
+
+function money(value) {
+
+  return "$" +
+    Number(
+      value || 0
+    ).toLocaleString();
+
+}
+
+
+/* =====================================================
+   SEARCH PLAYER
+===================================================== */
+
+function searchPlayer() {
+
+  const input =
+    document
+      .getElementById(
+        "usernameInput"
       );
 
-    }
 
-    return response.json();
-
-  }
-)
-
-.then(
-  function(json) {
-
-    data = json;
-
-    players =
-      Array.isArray(
-        data.players
-      )
-        ? data.players
-        : [];
+  const username =
+    input.value
+      .trim()
+      .toLowerCase();
 
 
-    loading.style.display =
-      "none";
+  if (!username) {
 
-
-    console.log(
-      "Players:",
-      players.length
+    showMessage(
+      "Enter a Twitch username.",
+      true
     );
-
-
-    console.log(
-      "Achievements:",
-      data.achievements
-    );
-
-  }
-)
-
-.catch(
-  function(err) {
-
-    loading.style.display =
-      "none";
-
-
-    error.style.display =
-      "block";
-
-
-    error.textContent =
-      "Unable to load player data.";
-
-
-    console.error(err);
-
-  }
-);
-
-
-/* =====================================================
-   SEARCH
-===================================================== */
-
-search.addEventListener(
-  "input",
-  function() {
-
-    var value =
-      search.value
-        .trim()
-        .toLowerCase();
-
-
-    suggestions.innerHTML =
-      "";
-
-
-    if (!value) {
-
-      suggestions.style.display =
-        "none";
-
-      return;
-
-    }
-
-
-    var matches =
-      players
-        .filter(
-          function(p) {
-
-            return String(
-              p.username
-            )
-            .toLowerCase()
-            .includes(value);
-
-          }
-        )
-        .slice(0, 8);
-
-
-    if (!matches.length) {
-
-      suggestions.style.display =
-        "none";
-
-      return;
-
-    }
-
-
-    matches.forEach(
-      function(p) {
-
-        var div =
-          document.createElement(
-            "div"
-          );
-
-
-        div.className =
-          "suggestion";
-
-
-        div.textContent =
-          p.username;
-
-
-        div.onclick =
-          function() {
-
-            search.value =
-              p.username;
-
-
-            suggestions.style.display =
-              "none";
-
-
-            showPlayer(
-              p.username
-            );
-
-          };
-
-
-        suggestions.appendChild(
-          div
-        );
-
-      }
-    );
-
-
-    suggestions.style.display =
-      "block";
-
-  }
-);
-
-
-/* =====================================================
-   SHOW PLAYER
-===================================================== */
-
-function showPlayer(
-  username
-) {
-
-  var found =
-    players.find(
-      function(p) {
-
-        return String(
-          p.username
-        )
-        .toLowerCase() ===
-        String(username)
-          .toLowerCase();
-
-      }
-    );
-
-
-  if (!found) {
-
-    player.style.display =
-      "none";
-
-
-    error.style.display =
-      "block";
-
-
-    error.textContent =
-      "Player not found.";
-
 
     return;
 
   }
 
 
-  error.style.display =
-    "none";
+  loadPlayer(
+    username
+  );
+
+}
 
 
-  player.style.display =
-    "block";
+/* =====================================================
+   ENTER KEY
+===================================================== */
+
+document
+  .getElementById(
+    "usernameInput"
+  )
+  .addEventListener(
+    "keydown",
+    function(event) {
+
+      if (
+        event.key ===
+        "Enter"
+      ) {
+
+        searchPlayer();
+
+      }
+
+    }
+  );
 
 
-  document.getElementById(
-    "playerName"
-  ).textContent =
-    found.username;
+/* =====================================================
+   LOAD PLAYER
+===================================================== */
+
+async function loadPlayer(
+  username
+) {
+
+  showMessage(
+    "Loading achievements..."
+  );
 
 
-  document.getElementById(
-    "balance"
-  ).textContent =
-    "$" +
-    Number(
-      found.balance || 0
+  document
+    .getElementById(
+      "profile"
     )
-    .toLocaleString();
+    .classList
+    .remove("active");
 
 
-  document.getElementById(
-    "moneyRank"
-  ).textContent =
-    "#" +
-    (
-      found.moneyRank ||
-      "-"
-    ) +
-    "/" +
-    (
-      data.totalPlayers ||
-      players.length
+  try {
+
+    const response =
+      await fetch(
+
+        API_URL +
+        "?action=profile&user=" +
+        encodeURIComponent(
+          username
+        )
+
+      );
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        "API request failed."
+      );
+
+    }
+
+
+    const data =
+      await response.json();
+
+
+    if (data.error) {
+
+      throw new Error(
+        data.error
+      );
+
+    }
+
+
+    currentPlayer =
+      data;
+
+
+    /*
+      Put username into URL.
+      This makes profiles shareable.
+    */
+
+    const newUrl =
+      window.location
+        .pathname +
+      "?user=" +
+      encodeURIComponent(
+        username
+      );
+
+
+    window.history
+      .replaceState(
+        {},
+        "",
+        newUrl
+      );
+
+
+    renderPlayer();
+
+
+  }
+
+  catch (error) {
+
+    showMessage(
+      error.message ||
+      "Could not load player.",
+      true
     );
 
+  }
 
-  document.getElementById(
-    "achievementRank"
-  ).textContent =
-    "#" +
-    (
-      found.achievementRank ||
-      "-"
-    ) +
-    "/" +
-    (
-      data.totalPlayers ||
-      players.length
-    );
+}
 
 
-  document.getElementById(
-    "completed"
-  ).textContent =
-    found.achievementCount ||
-    0;
+/* =====================================================
+   RENDER PLAYER
+===================================================== */
+
+function renderPlayer() {
+
+  if (!currentPlayer) {
+    return;
+  }
 
 
-  document.getElementById(
-    "total"
-  ).textContent =
-    data.totalAchievements ||
-    0;
+  document
+    .getElementById(
+      "message"
+    )
+    .style
+    .display =
+      "none";
 
 
-  var total =
-    Number(
-      data.totalAchievements ||
-      0
-    );
+  document
+    .getElementById(
+      "profile"
+    )
+    .classList
+    .add("active");
 
 
-  var count =
-    Number(
-      found.achievementCount ||
-      0
-    );
+  document
+    .getElementById(
+      "profileName"
+    )
+    .textContent =
+      currentPlayer.username;
 
 
-  var percentage =
-    total > 0
+  document
+    .getElementById(
+      "balance"
+    )
+    .textContent =
+      money(
+        currentPlayer.balance
+      );
+
+
+  document
+    .getElementById(
+      "moneyRank"
+    )
+    .textContent =
+      "#" +
+      currentPlayer.moneyRank;
+
+
+  document
+    .getElementById(
+      "achievementCount"
+    )
+    .textContent =
+      currentPlayer.achievementCount +
+      "/" +
+      currentPlayer.totalAchievements;
+
+
+  const percentage =
+    currentPlayer.totalAchievements
       ? Math.round(
-          count /
-          total *
-          100
+          (
+            currentPlayer.achievementCount /
+            currentPlayer.totalAchievements
+          ) * 100
         )
       : 0;
 
 
-  document.getElementById(
-    "percentage"
-  ).textContent =
-    percentage + "%";
+  document
+    .getElementById(
+      "percentage"
+    )
+    .textContent =
+      percentage +
+      "%";
 
 
-  renderAchievements(
-    found
-  );
+  document
+    .getElementById(
+      "overallBar"
+    )
+    .style
+    .width =
+      percentage +
+      "%";
+
+
+  renderAchievements();
 
 }
 
@@ -941,350 +1109,418 @@ function showPlayer(
    RENDER ACHIEVEMENTS
 ===================================================== */
 
-function renderAchievements(
-  found
-) {
+function renderAchievements() {
 
-  var container =
-    document.getElementById(
-      "achievements"
-    );
+  const container =
+    document
+      .getElementById(
+        "achievements"
+      );
 
 
   container.innerHTML =
     "";
 
 
-  var definitions =
-    Array.isArray(
-      data.achievements
-    )
-      ? data.achievements
-      : [];
+  const achievements =
+    currentPlayer.achievements;
 
 
-  /*
-    New format:
+  for (
+    let i = 0;
+    i < achievements.length;
+    i++
+  ) {
 
-    player.achievementProgress = [
-
-      {
-        id: "work_25",
-        progress: 17,
-        goal: 25,
-        completed: false
-      }
-
-    ]
-  */
+    const achievement =
+      achievements[i];
 
 
-  var progressList =
-    Array.isArray(
-      found.achievementProgress
-    )
-      ? found.achievementProgress
-      : [];
+    const completed =
+      achievement.completed;
 
 
-  var progressMap = {};
+    const progress =
+      Number(
+        achievement.progress
+      ) || 0;
 
 
-  progressList.forEach(
-    function(item) {
-
-      progressMap[
-        String(item.id)
-      ] =
-        item;
-
-    }
-  );
+    const goal =
+      Number(
+        achievement.goal
+      ) || 1;
 
 
-  /*
-    Compatibility with the old format.
-  */
-
-  var completedIDs =
-    Array.isArray(
-      found.achievements
-    )
-      ? found.achievements
-      : [];
-
-
-  definitions.forEach(
-    function(a) {
-
-      var item =
-        progressMap[
-          String(a.id)
-        ];
-
-
-      var progress = 0;
-
-      var goal =
-        Number(a.goal) || 1;
-
-      var completed =
-        false;
-
-
-      if (item) {
-
-        progress =
-          Number(
-            item.progress
-          ) || 0;
-
-
-        goal =
-          Number(
-            item.goal
-          ) ||
-          Number(a.goal) ||
-          1;
-
-
-        completed =
-          Boolean(
-            item.completed
-          );
-
-      }
-
-
-      /*
-        Old data fallback.
-      */
-
-      if (!item) {
-
-        completed =
-          completedIDs.indexOf(
-            a.id
-          ) !== -1;
-
-
-        progress =
-          completed
-            ? goal
-            : 0;
-
-      }
-
-
-      /*
-        Keep progress between
-        0 and goal.
-      */
-
-      progress =
-        Math.max(
-          0,
-          Math.min(
-            progress,
+    const percent =
+      Math.min(
+        100,
+        Math.round(
+          (
+            progress /
             goal
-          )
-        );
-
-
-      var percentage =
-        goal > 0
-          ? Math.round(
-              progress /
-              goal *
-              100
-            )
-          : 0;
-
-
-      var div =
-        document.createElement(
-          "div"
-        );
-
-
-      div.className =
-        "achievement " +
-        (
-          completed
-            ? "completed"
-            : "locked"
-        );
-
-
-      var name =
-        document.createElement(
-          "div"
-        );
-
-
-      name.className =
-        "achievement-name";
-
-
-      name.textContent =
-        (
-          completed
-            ? "✅ "
-            : "🔒 "
-        ) +
-        a.name;
-
-
-      var description =
-        document.createElement(
-          "div"
-        );
-
-
-      description.className =
-        "description";
-
-
-      description.textContent =
-        a.description;
-
-
-      var progressContainer =
-        document.createElement(
-          "div"
-        );
-
-
-      progressContainer.className =
-        "progress-container";
-
-
-      var progressText =
-        document.createElement(
-          "div"
-        );
-
-
-      progressText.className =
-        "progress-text";
-
-
-      progressText.textContent =
-        formatNumber(
-          progress
-        ) +
-        " / " +
-        formatNumber(
-          goal
-        ) +
-        " (" +
-        percentage +
-        "%)";
-
-
-      var progressBar =
-        document.createElement(
-          "div"
-        );
-
-
-      progressBar.className =
-        "progress-bar";
-
-
-      var progressFill =
-        document.createElement(
-          "div"
-        );
-
-
-      progressFill.className =
-        "progress-fill";
-
-
-      progressFill.style.width =
-        percentage + "%";
-
-
-      progressBar.appendChild(
-        progressFill
+          ) * 100
+        )
       );
 
 
-      progressContainer.appendChild(
-        progressText
-      );
+    let filterMatch = true;
 
 
-      progressContainer.appendChild(
-        progressBar
-      );
+    if (
+      currentFilter ===
+      "completed"
+    ) {
 
-
-      div.appendChild(
-        name
-      );
-
-
-      div.appendChild(
-        description
-      );
-
-
-      div.appendChild(
-        progressContainer
-      );
-
-
-      if (completed) {
-
-        var completeText =
-          document.createElement(
-            "div"
-          );
-
-
-        completeText.className =
-          "complete-text";
-
-
-        completeText.textContent =
-          "✓ COMPLETE";
-
-
-        div.appendChild(
-          completeText
-        );
-
-      }
-
-
-      container.appendChild(
-        div
-      );
+      filterMatch =
+        completed;
 
     }
-  );
 
 
-  if (!definitions.length) {
+    else if (
+      currentFilter ===
+      "progress"
+    ) {
 
-    var message =
+      filterMatch =
+        !completed &&
+        progress > 0;
+
+    }
+
+
+    else if (
+      currentFilter ===
+      "locked"
+    ) {
+
+      filterMatch =
+        !completed &&
+        progress === 0;
+
+    }
+
+
+    if (!filterMatch) {
+      continue;
+    }
+
+
+    const card =
       document.createElement(
         "div"
       );
 
 
-    message.className =
-      "achievement locked";
+    card.className =
+      "achievement" +
+      (
+        completed
+          ? " completed"
+          : ""
+      );
 
 
-    message.textContent =
-      "Achievement definitions were not found.";
+    let icon =
+      completed
+        ? "🏆"
+        : progress > 0
+          ? "🔄"
+          : "🔒";
+
+
+    let progressText;
+
+
+    /*
+      Money achievements
+    */
+
+    if (
+      achievement.type ===
+        "workmoney" ||
+      achievement.type ===
+        "scammoney" ||
+      achievement.type ===
+        "highest" ||
+      achievement.type ===
+        "bigscore"
+    ) {
+
+      progressText =
+        money(progress) +
+        " / " +
+        money(goal);
+
+    }
+
+
+    /*
+      Rank achievements
+    */
+
+    else if (
+      achievement.type ===
+      "rank"
+    ) {
+
+      if (completed) {
+
+        progressText =
+          "Top " +
+          goal +
+          " ✓";
+
+      }
+
+      else {
+
+        progressText =
+          "Current rank #" +
+          currentPlayer.moneyRank +
+          " • Need Top " +
+          goal;
+
+      }
+
+    }
+
+
+    /*
+      Normal achievements
+    */
+
+    else {
+
+      progressText =
+        progress +
+        " / " +
+        goal;
+
+    }
+
+
+    card.innerHTML = `
+
+      <div class="achievement-title">
+
+        <span class="achievement-icon">
+          ${icon}
+        </span>
+
+        <span>
+          ${escapeHtml(
+            achievement.name
+          )}
+        </span>
+
+      </div>
+
+
+      <div class="achievement-description">
+
+        ${escapeHtml(
+          achievement.description
+        )}
+
+      </div>
+
+
+      <div class="achievement-progress">
+
+        <span>
+          ${progressText}
+        </span>
+
+        <span>
+          ${percent}%
+        </span>
+
+      </div>
+
+
+      <div class="achievement-progress-bar">
+
+        <div
+          class="achievement-progress-fill"
+          style="width:${percent}%"
+        ></div>
+
+      </div>
+
+    `;
 
 
     container.appendChild(
-      message
+      card
+    );
+
+  }
+
+
+  if (
+    container.children.length === 0
+  ) {
+
+    container.innerHTML = `
+
+      <div class="message">
+
+        No achievements in this category.
+
+      </div>
+
+    `;
+
+  }
+
+}
+
+
+/* =====================================================
+   FILTER
+===================================================== */
+
+function setFilter(
+  filter,
+  button
+) {
+
+  currentFilter =
+    filter;
+
+
+  document
+    .querySelectorAll(
+      ".filter"
+    )
+    .forEach(
+      function(element) {
+
+        element
+          .classList
+          .remove(
+            "active"
+          );
+
+      }
+    );
+
+
+  button
+    .classList
+    .add(
+      "active"
+    );
+
+
+  renderAchievements();
+
+}
+
+
+/* =====================================================
+   SHOW MESSAGE
+===================================================== */
+
+function showMessage(
+  message,
+  error
+) {
+
+  const element =
+    document
+      .getElementById(
+        "message"
+      );
+
+
+  element
+    .style
+    .display =
+      "block";
+
+
+  element
+    .className =
+      error
+        ? "message error"
+        : "message";
+
+
+  element
+    .textContent =
+      message;
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHtml(
+  value
+) {
+
+  return String(
+    value || ""
+  )
+  .replace(
+    /&/g,
+    "&amp;"
+  )
+  .replace(
+    /</g,
+    "&lt;"
+  )
+  .replace(
+    />/g,
+    "&gt;"
+  )
+  .replace(
+    /"/g,
+    "&quot;"
+  )
+  .replace(
+    /'/g,
+    "&#039;"
+  );
+
+}
+
+
+/* =====================================================
+   LOAD USER FROM URL
+===================================================== */
+
+function loadUserFromUrl() {
+
+  const params =
+    new URLSearchParams(
+      window.location.search
+    );
+
+
+  const username =
+    params.get(
+      "user"
+    );
+
+
+  if (username) {
+
+    document
+      .getElementById(
+        "usernameInput"
+      )
+      .value =
+        username;
+
+
+    loadPlayer(
+      username
     );
 
   }
@@ -1293,52 +1529,10 @@ function renderAchievements(
 
 
 /* =====================================================
-   NUMBER FORMAT
+   START
 ===================================================== */
 
-function formatNumber(
-  value
-) {
-
-  var number =
-    Number(value);
-
-
-  if (
-    !isFinite(number)
-  ) {
-
-    return "0";
-
-  }
-
-
-  return number.toLocaleString();
-
-}
-
-
-/* =====================================================
-   HIDE SUGGESTIONS
-===================================================== */
-
-document.addEventListener(
-  "click",
-  function(event) {
-
-    if (
-      !event.target.closest(
-        ".search"
-      )
-    ) {
-
-      suggestions.style.display =
-        "none";
-
-    }
-
-  }
-);
+loadUserFromUrl();
 
 </script>
 
