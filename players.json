@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-26T06:35:05.467Z",
+  "updated": "2026-08-26T07:14:11.823Z",
   "totalPlayers": 7,
   "totalAchievements": 30,
   "achievements": [
@@ -217,185 +217,275 @@
   "players": [
     {
       "username": "dipeshlovesbooby",
-      "balance": 205,
-      "moneyRank": 2,
+      "balance": 135,
+      "moneyRank": 7,
       "achievementProgress": [
         {
           "id": "first_work",
+          "name": "First Paycheck",
+          "description": "Use !work once.",
+          "type": "work",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "work_25",
+          "name": "Part-Time Employee",
+          "description": "Use !work 25 times.",
+          "type": "work",
           "progress": 0,
           "goal": 25,
           "completed": false
         },
         {
           "id": "work_100",
+          "name": "Full-Time Employee",
+          "description": "Use !work 100 times.",
+          "type": "work",
           "progress": 0,
           "goal": 100,
           "completed": false
         },
         {
           "id": "work_250",
+          "name": "Work Machine",
+          "description": "Use !work 250 times.",
+          "type": "work",
           "progress": 0,
           "goal": 250,
           "completed": false
         },
         {
           "id": "work_500",
+          "name": "Workaholic",
+          "description": "Use !work 500 times.",
+          "type": "work",
           "progress": 0,
           "goal": 500,
           "completed": false
         },
         {
           "id": "work_1000",
+          "name": "Corporate Slave",
+          "description": "Use !work 1,000 times.",
+          "type": "work",
           "progress": 0,
           "goal": 1000,
           "completed": false
         },
         {
           "id": "work_1000_money",
+          "name": "Overtime",
+          "description": "Earn $1,000 from !work.",
+          "type": "workmoney",
           "progress": 0,
           "goal": 1000,
           "completed": false
         },
         {
           "id": "work_5000_money",
+          "name": "Career Employee",
+          "description": "Earn $5,000 from !work.",
+          "type": "workmoney",
           "progress": 0,
           "goal": 5000,
           "completed": false
         },
         {
           "id": "work_10000_money",
+          "name": "Workaholic Deluxe",
+          "description": "Earn $10,000 from !work.",
+          "type": "workmoney",
           "progress": 0,
           "goal": 10000,
           "completed": false
         },
         {
           "id": "scam_1",
+          "name": "First Scam",
+          "description": "Successfully scam someone.",
+          "type": "scams",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "scam_10",
+          "name": "Rookie Scammer",
+          "description": "Successfully scam 10 people.",
+          "type": "scams",
           "progress": 0,
           "goal": 10,
           "completed": false
         },
         {
           "id": "scam_25",
+          "name": "Con Artist",
+          "description": "Successfully scam 25 people.",
+          "type": "scams",
           "progress": 0,
           "goal": 25,
           "completed": false
         },
         {
           "id": "scam_100",
+          "name": "Scam Factory",
+          "description": "Successfully scam 100 people.",
+          "type": "scams",
           "progress": 0,
           "goal": 100,
           "completed": false
         },
         {
           "id": "scam_250",
+          "name": "Professional Criminal",
+          "description": "Successfully scam 250 people.",
+          "type": "scams",
           "progress": 0,
           "goal": 250,
           "completed": false
         },
         {
           "id": "scam_money_1000",
+          "name": "Dirty Business",
+          "description": "Steal $1,000 through scams.",
+          "type": "scammoney",
           "progress": 0,
           "goal": 1000,
           "completed": false
         },
         {
           "id": "scam_money_10000",
+          "name": "Scam Tycoon",
+          "description": "Steal $10,000 through scams.",
+          "type": "scammoney",
           "progress": 0,
           "goal": 10000,
           "completed": false
         },
         {
           "id": "big_score",
+          "name": "Big Score",
+          "description": "Successfully scam $100 in one attempt.",
+          "type": "bigscore",
           "progress": 0,
           "goal": 100,
           "completed": false
         },
         {
           "id": "report_1",
+          "name": "Caught in 4K",
+          "description": "Get reported once.",
+          "type": "reports",
           "progress": 1,
           "goal": 1,
           "completed": true
         },
         {
           "id": "report_10",
-          "progress": 1,
+          "name": "Repeat Offender",
+          "description": "Get reported 10 times.",
+          "type": "reports",
+          "progress": 2,
           "goal": 10,
           "completed": false
         },
         {
           "id": "report_50",
-          "progress": 1,
+          "name": "Public Enemy",
+          "description": "Get reported 50 times.",
+          "type": "reports",
+          "progress": 2,
           "goal": 50,
           "completed": false
         },
         {
           "id": "negative",
+          "name": "Rock Bottom",
+          "description": "Reach a negative balance.",
+          "type": "negative",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "comeback",
+          "name": "Comeback Kid",
+          "description": "Recover from negative balance to $200+.",
+          "type": "comeback",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "balance_500",
+          "name": "Getting Rich",
+          "description": "Reach $500.",
+          "type": "highest",
           "progress": 0,
           "goal": 500,
           "completed": false
         },
         {
           "id": "balance_1000",
+          "name": "Big Money",
+          "description": "Reach $1,000.",
+          "type": "highest",
           "progress": 0,
           "goal": 1000,
           "completed": false
         },
         {
           "id": "balance_5000",
+          "name": "High Roller",
+          "description": "Reach $5,000.",
+          "type": "highest",
           "progress": 0,
           "goal": 5000,
           "completed": false
         },
         {
           "id": "top5",
-          "progress": 1,
+          "name": "Top 5",
+          "description": "Reach the top 5 on the money leaderboard.",
+          "type": "rank",
+          "progress": 0,
           "goal": 5,
           "completed": false
         },
         {
           "id": "king",
+          "name": "Money King",
+          "description": "Reach #1 on the money leaderboard.",
+          "type": "rank",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "lucky50",
+          "name": "Lucky Worker",
+          "description": "Receive a $50 lucky payout.",
+          "type": "lucky50",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "lucky100",
+          "name": "Very Lucky",
+          "description": "Receive a $100 lucky payout.",
+          "type": "lucky100",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "jackpot",
+          "name": "Jackpot!",
+          "description": "Hit the $150 work jackpot.",
+          "type": "jackpot",
           "progress": 0,
           "goal": 1,
           "completed": false
@@ -410,184 +500,274 @@
     {
       "username": "streamelements",
       "balance": 146,
-      "moneyRank": 7,
+      "moneyRank": 6,
       "achievementProgress": [
         {
           "id": "first_work",
+          "name": "First Paycheck",
+          "description": "Use !work once.",
+          "type": "work",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "work_25",
+          "name": "Part-Time Employee",
+          "description": "Use !work 25 times.",
+          "type": "work",
           "progress": 0,
           "goal": 25,
           "completed": false
         },
         {
           "id": "work_100",
+          "name": "Full-Time Employee",
+          "description": "Use !work 100 times.",
+          "type": "work",
           "progress": 0,
           "goal": 100,
           "completed": false
         },
         {
           "id": "work_250",
+          "name": "Work Machine",
+          "description": "Use !work 250 times.",
+          "type": "work",
           "progress": 0,
           "goal": 250,
           "completed": false
         },
         {
           "id": "work_500",
+          "name": "Workaholic",
+          "description": "Use !work 500 times.",
+          "type": "work",
           "progress": 0,
           "goal": 500,
           "completed": false
         },
         {
           "id": "work_1000",
+          "name": "Corporate Slave",
+          "description": "Use !work 1,000 times.",
+          "type": "work",
           "progress": 0,
           "goal": 1000,
           "completed": false
         },
         {
           "id": "work_1000_money",
+          "name": "Overtime",
+          "description": "Earn $1,000 from !work.",
+          "type": "workmoney",
           "progress": 0,
           "goal": 1000,
           "completed": false
         },
         {
           "id": "work_5000_money",
+          "name": "Career Employee",
+          "description": "Earn $5,000 from !work.",
+          "type": "workmoney",
           "progress": 0,
           "goal": 5000,
           "completed": false
         },
         {
           "id": "work_10000_money",
+          "name": "Workaholic Deluxe",
+          "description": "Earn $10,000 from !work.",
+          "type": "workmoney",
           "progress": 0,
           "goal": 10000,
           "completed": false
         },
         {
           "id": "scam_1",
+          "name": "First Scam",
+          "description": "Successfully scam someone.",
+          "type": "scams",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "scam_10",
+          "name": "Rookie Scammer",
+          "description": "Successfully scam 10 people.",
+          "type": "scams",
           "progress": 0,
           "goal": 10,
           "completed": false
         },
         {
           "id": "scam_25",
+          "name": "Con Artist",
+          "description": "Successfully scam 25 people.",
+          "type": "scams",
           "progress": 0,
           "goal": 25,
           "completed": false
         },
         {
           "id": "scam_100",
+          "name": "Scam Factory",
+          "description": "Successfully scam 100 people.",
+          "type": "scams",
           "progress": 0,
           "goal": 100,
           "completed": false
         },
         {
           "id": "scam_250",
+          "name": "Professional Criminal",
+          "description": "Successfully scam 250 people.",
+          "type": "scams",
           "progress": 0,
           "goal": 250,
           "completed": false
         },
         {
           "id": "scam_money_1000",
+          "name": "Dirty Business",
+          "description": "Steal $1,000 through scams.",
+          "type": "scammoney",
           "progress": 0,
           "goal": 1000,
           "completed": false
         },
         {
           "id": "scam_money_10000",
+          "name": "Scam Tycoon",
+          "description": "Steal $10,000 through scams.",
+          "type": "scammoney",
           "progress": 0,
           "goal": 10000,
           "completed": false
         },
         {
           "id": "big_score",
+          "name": "Big Score",
+          "description": "Successfully scam $100 in one attempt.",
+          "type": "bigscore",
           "progress": 0,
           "goal": 100,
           "completed": false
         },
         {
           "id": "report_1",
+          "name": "Caught in 4K",
+          "description": "Get reported once.",
+          "type": "reports",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "report_10",
+          "name": "Repeat Offender",
+          "description": "Get reported 10 times.",
+          "type": "reports",
           "progress": 0,
           "goal": 10,
           "completed": false
         },
         {
           "id": "report_50",
+          "name": "Public Enemy",
+          "description": "Get reported 50 times.",
+          "type": "reports",
           "progress": 0,
           "goal": 50,
           "completed": false
         },
         {
           "id": "negative",
+          "name": "Rock Bottom",
+          "description": "Reach a negative balance.",
+          "type": "negative",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "comeback",
+          "name": "Comeback Kid",
+          "description": "Recover from negative balance to $200+.",
+          "type": "comeback",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "balance_500",
+          "name": "Getting Rich",
+          "description": "Reach $500.",
+          "type": "highest",
           "progress": 0,
           "goal": 500,
           "completed": false
         },
         {
           "id": "balance_1000",
+          "name": "Big Money",
+          "description": "Reach $1,000.",
+          "type": "highest",
           "progress": 0,
           "goal": 1000,
           "completed": false
         },
         {
           "id": "balance_5000",
+          "name": "High Roller",
+          "description": "Reach $5,000.",
+          "type": "highest",
           "progress": 0,
           "goal": 5000,
           "completed": false
         },
         {
           "id": "top5",
+          "name": "Top 5",
+          "description": "Reach the top 5 on the money leaderboard.",
+          "type": "rank",
           "progress": 0,
           "goal": 5,
           "completed": false
         },
         {
           "id": "king",
+          "name": "Money King",
+          "description": "Reach #1 on the money leaderboard.",
+          "type": "rank",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "lucky50",
+          "name": "Lucky Worker",
+          "description": "Receive a $50 lucky payout.",
+          "type": "lucky50",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "lucky100",
+          "name": "Very Lucky",
+          "description": "Receive a $100 lucky payout.",
+          "type": "lucky100",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "jackpot",
+          "name": "Jackpot!",
+          "description": "Hit the $150 work jackpot.",
+          "type": "jackpot",
           "progress": 0,
           "goal": 1,
           "completed": false
@@ -604,180 +784,270 @@
       "achievementProgress": [
         {
           "id": "first_work",
+          "name": "First Paycheck",
+          "description": "Use !work once.",
+          "type": "work",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "work_25",
+          "name": "Part-Time Employee",
+          "description": "Use !work 25 times.",
+          "type": "work",
           "progress": 0,
           "goal": 25,
           "completed": false
         },
         {
           "id": "work_100",
+          "name": "Full-Time Employee",
+          "description": "Use !work 100 times.",
+          "type": "work",
           "progress": 0,
           "goal": 100,
           "completed": false
         },
         {
           "id": "work_250",
+          "name": "Work Machine",
+          "description": "Use !work 250 times.",
+          "type": "work",
           "progress": 0,
           "goal": 250,
           "completed": false
         },
         {
           "id": "work_500",
+          "name": "Workaholic",
+          "description": "Use !work 500 times.",
+          "type": "work",
           "progress": 0,
           "goal": 500,
           "completed": false
         },
         {
           "id": "work_1000",
+          "name": "Corporate Slave",
+          "description": "Use !work 1,000 times.",
+          "type": "work",
           "progress": 0,
           "goal": 1000,
           "completed": false
         },
         {
           "id": "work_1000_money",
+          "name": "Overtime",
+          "description": "Earn $1,000 from !work.",
+          "type": "workmoney",
           "progress": 0,
           "goal": 1000,
           "completed": false
         },
         {
           "id": "work_5000_money",
+          "name": "Career Employee",
+          "description": "Earn $5,000 from !work.",
+          "type": "workmoney",
           "progress": 0,
           "goal": 5000,
           "completed": false
         },
         {
           "id": "work_10000_money",
+          "name": "Workaholic Deluxe",
+          "description": "Earn $10,000 from !work.",
+          "type": "workmoney",
           "progress": 0,
           "goal": 10000,
           "completed": false
         },
         {
           "id": "scam_1",
+          "name": "First Scam",
+          "description": "Successfully scam someone.",
+          "type": "scams",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "scam_10",
+          "name": "Rookie Scammer",
+          "description": "Successfully scam 10 people.",
+          "type": "scams",
           "progress": 0,
           "goal": 10,
           "completed": false
         },
         {
           "id": "scam_25",
+          "name": "Con Artist",
+          "description": "Successfully scam 25 people.",
+          "type": "scams",
           "progress": 0,
           "goal": 25,
           "completed": false
         },
         {
           "id": "scam_100",
+          "name": "Scam Factory",
+          "description": "Successfully scam 100 people.",
+          "type": "scams",
           "progress": 0,
           "goal": 100,
           "completed": false
         },
         {
           "id": "scam_250",
+          "name": "Professional Criminal",
+          "description": "Successfully scam 250 people.",
+          "type": "scams",
           "progress": 0,
           "goal": 250,
           "completed": false
         },
         {
           "id": "scam_money_1000",
+          "name": "Dirty Business",
+          "description": "Steal $1,000 through scams.",
+          "type": "scammoney",
           "progress": 0,
           "goal": 1000,
           "completed": false
         },
         {
           "id": "scam_money_10000",
+          "name": "Scam Tycoon",
+          "description": "Steal $10,000 through scams.",
+          "type": "scammoney",
           "progress": 0,
           "goal": 10000,
           "completed": false
         },
         {
           "id": "big_score",
+          "name": "Big Score",
+          "description": "Successfully scam $100 in one attempt.",
+          "type": "bigscore",
           "progress": 0,
           "goal": 100,
           "completed": false
         },
         {
           "id": "report_1",
+          "name": "Caught in 4K",
+          "description": "Get reported once.",
+          "type": "reports",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "report_10",
+          "name": "Repeat Offender",
+          "description": "Get reported 10 times.",
+          "type": "reports",
           "progress": 0,
           "goal": 10,
           "completed": false
         },
         {
           "id": "report_50",
+          "name": "Public Enemy",
+          "description": "Get reported 50 times.",
+          "type": "reports",
           "progress": 0,
           "goal": 50,
           "completed": false
         },
         {
           "id": "negative",
+          "name": "Rock Bottom",
+          "description": "Reach a negative balance.",
+          "type": "negative",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "comeback",
+          "name": "Comeback Kid",
+          "description": "Recover from negative balance to $200+.",
+          "type": "comeback",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "balance_500",
+          "name": "Getting Rich",
+          "description": "Reach $500.",
+          "type": "highest",
           "progress": 0,
           "goal": 500,
           "completed": false
         },
         {
           "id": "balance_1000",
+          "name": "Big Money",
+          "description": "Reach $1,000.",
+          "type": "highest",
           "progress": 0,
           "goal": 1000,
           "completed": false
         },
         {
           "id": "balance_5000",
+          "name": "High Roller",
+          "description": "Reach $5,000.",
+          "type": "highest",
           "progress": 0,
           "goal": 5000,
           "completed": false
         },
         {
           "id": "top5",
+          "name": "Top 5",
+          "description": "Reach the top 5 on the money leaderboard.",
+          "type": "rank",
           "progress": 1,
           "goal": 5,
           "completed": false
         },
         {
           "id": "king",
+          "name": "Money King",
+          "description": "Reach #1 on the money leaderboard.",
+          "type": "rank",
           "progress": 1,
           "goal": 1,
           "completed": true
         },
         {
           "id": "lucky50",
+          "name": "Lucky Worker",
+          "description": "Receive a $50 lucky payout.",
+          "type": "lucky50",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "lucky100",
+          "name": "Very Lucky",
+          "description": "Receive a $100 lucky payout.",
+          "type": "lucky100",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "jackpot",
+          "name": "Jackpot!",
+          "description": "Hit the $150 work jackpot.",
+          "type": "jackpot",
           "progress": 0,
           "goal": 1,
           "completed": false
@@ -792,184 +1062,274 @@
     {
       "username": "creatisbot",
       "balance": 189,
-      "moneyRank": 6,
+      "moneyRank": 5,
       "achievementProgress": [
         {
           "id": "first_work",
+          "name": "First Paycheck",
+          "description": "Use !work once.",
+          "type": "work",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "work_25",
+          "name": "Part-Time Employee",
+          "description": "Use !work 25 times.",
+          "type": "work",
           "progress": 0,
           "goal": 25,
           "completed": false
         },
         {
           "id": "work_100",
+          "name": "Full-Time Employee",
+          "description": "Use !work 100 times.",
+          "type": "work",
           "progress": 0,
           "goal": 100,
           "completed": false
         },
         {
           "id": "work_250",
+          "name": "Work Machine",
+          "description": "Use !work 250 times.",
+          "type": "work",
           "progress": 0,
           "goal": 250,
           "completed": false
         },
         {
           "id": "work_500",
+          "name": "Workaholic",
+          "description": "Use !work 500 times.",
+          "type": "work",
           "progress": 0,
           "goal": 500,
           "completed": false
         },
         {
           "id": "work_1000",
+          "name": "Corporate Slave",
+          "description": "Use !work 1,000 times.",
+          "type": "work",
           "progress": 0,
           "goal": 1000,
           "completed": false
         },
         {
           "id": "work_1000_money",
+          "name": "Overtime",
+          "description": "Earn $1,000 from !work.",
+          "type": "workmoney",
           "progress": 0,
           "goal": 1000,
           "completed": false
         },
         {
           "id": "work_5000_money",
+          "name": "Career Employee",
+          "description": "Earn $5,000 from !work.",
+          "type": "workmoney",
           "progress": 0,
           "goal": 5000,
           "completed": false
         },
         {
           "id": "work_10000_money",
+          "name": "Workaholic Deluxe",
+          "description": "Earn $10,000 from !work.",
+          "type": "workmoney",
           "progress": 0,
           "goal": 10000,
           "completed": false
         },
         {
           "id": "scam_1",
+          "name": "First Scam",
+          "description": "Successfully scam someone.",
+          "type": "scams",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "scam_10",
+          "name": "Rookie Scammer",
+          "description": "Successfully scam 10 people.",
+          "type": "scams",
           "progress": 0,
           "goal": 10,
           "completed": false
         },
         {
           "id": "scam_25",
+          "name": "Con Artist",
+          "description": "Successfully scam 25 people.",
+          "type": "scams",
           "progress": 0,
           "goal": 25,
           "completed": false
         },
         {
           "id": "scam_100",
+          "name": "Scam Factory",
+          "description": "Successfully scam 100 people.",
+          "type": "scams",
           "progress": 0,
           "goal": 100,
           "completed": false
         },
         {
           "id": "scam_250",
+          "name": "Professional Criminal",
+          "description": "Successfully scam 250 people.",
+          "type": "scams",
           "progress": 0,
           "goal": 250,
           "completed": false
         },
         {
           "id": "scam_money_1000",
+          "name": "Dirty Business",
+          "description": "Steal $1,000 through scams.",
+          "type": "scammoney",
           "progress": 0,
           "goal": 1000,
           "completed": false
         },
         {
           "id": "scam_money_10000",
+          "name": "Scam Tycoon",
+          "description": "Steal $10,000 through scams.",
+          "type": "scammoney",
           "progress": 0,
           "goal": 10000,
           "completed": false
         },
         {
           "id": "big_score",
+          "name": "Big Score",
+          "description": "Successfully scam $100 in one attempt.",
+          "type": "bigscore",
           "progress": 0,
           "goal": 100,
           "completed": false
         },
         {
           "id": "report_1",
+          "name": "Caught in 4K",
+          "description": "Get reported once.",
+          "type": "reports",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "report_10",
+          "name": "Repeat Offender",
+          "description": "Get reported 10 times.",
+          "type": "reports",
           "progress": 0,
           "goal": 10,
           "completed": false
         },
         {
           "id": "report_50",
+          "name": "Public Enemy",
+          "description": "Get reported 50 times.",
+          "type": "reports",
           "progress": 0,
           "goal": 50,
           "completed": false
         },
         {
           "id": "negative",
+          "name": "Rock Bottom",
+          "description": "Reach a negative balance.",
+          "type": "negative",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "comeback",
+          "name": "Comeback Kid",
+          "description": "Recover from negative balance to $200+.",
+          "type": "comeback",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "balance_500",
+          "name": "Getting Rich",
+          "description": "Reach $500.",
+          "type": "highest",
           "progress": 0,
           "goal": 500,
           "completed": false
         },
         {
           "id": "balance_1000",
+          "name": "Big Money",
+          "description": "Reach $1,000.",
+          "type": "highest",
           "progress": 0,
           "goal": 1000,
           "completed": false
         },
         {
           "id": "balance_5000",
+          "name": "High Roller",
+          "description": "Reach $5,000.",
+          "type": "highest",
           "progress": 0,
           "goal": 5000,
           "completed": false
         },
         {
           "id": "top5",
-          "progress": 0,
+          "name": "Top 5",
+          "description": "Reach the top 5 on the money leaderboard.",
+          "type": "rank",
+          "progress": 1,
           "goal": 5,
           "completed": false
         },
         {
           "id": "king",
+          "name": "Money King",
+          "description": "Reach #1 on the money leaderboard.",
+          "type": "rank",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "lucky50",
+          "name": "Lucky Worker",
+          "description": "Receive a $50 lucky payout.",
+          "type": "lucky50",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "lucky100",
+          "name": "Very Lucky",
+          "description": "Receive a $100 lucky payout.",
+          "type": "lucky100",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "jackpot",
+          "name": "Jackpot!",
+          "description": "Hit the $150 work jackpot.",
+          "type": "jackpot",
           "progress": 0,
           "goal": 1,
           "completed": false
@@ -982,184 +1342,274 @@
     {
       "username": "ti_84calculator",
       "balance": 200,
-      "moneyRank": 3,
+      "moneyRank": 2,
       "achievementProgress": [
         {
           "id": "first_work",
+          "name": "First Paycheck",
+          "description": "Use !work once.",
+          "type": "work",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "work_25",
+          "name": "Part-Time Employee",
+          "description": "Use !work 25 times.",
+          "type": "work",
           "progress": 0,
           "goal": 25,
           "completed": false
         },
         {
           "id": "work_100",
+          "name": "Full-Time Employee",
+          "description": "Use !work 100 times.",
+          "type": "work",
           "progress": 0,
           "goal": 100,
           "completed": false
         },
         {
           "id": "work_250",
+          "name": "Work Machine",
+          "description": "Use !work 250 times.",
+          "type": "work",
           "progress": 0,
           "goal": 250,
           "completed": false
         },
         {
           "id": "work_500",
+          "name": "Workaholic",
+          "description": "Use !work 500 times.",
+          "type": "work",
           "progress": 0,
           "goal": 500,
           "completed": false
         },
         {
           "id": "work_1000",
+          "name": "Corporate Slave",
+          "description": "Use !work 1,000 times.",
+          "type": "work",
           "progress": 0,
           "goal": 1000,
           "completed": false
         },
         {
           "id": "work_1000_money",
+          "name": "Overtime",
+          "description": "Earn $1,000 from !work.",
+          "type": "workmoney",
           "progress": 0,
           "goal": 1000,
           "completed": false
         },
         {
           "id": "work_5000_money",
+          "name": "Career Employee",
+          "description": "Earn $5,000 from !work.",
+          "type": "workmoney",
           "progress": 0,
           "goal": 5000,
           "completed": false
         },
         {
           "id": "work_10000_money",
+          "name": "Workaholic Deluxe",
+          "description": "Earn $10,000 from !work.",
+          "type": "workmoney",
           "progress": 0,
           "goal": 10000,
           "completed": false
         },
         {
           "id": "scam_1",
+          "name": "First Scam",
+          "description": "Successfully scam someone.",
+          "type": "scams",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "scam_10",
+          "name": "Rookie Scammer",
+          "description": "Successfully scam 10 people.",
+          "type": "scams",
           "progress": 0,
           "goal": 10,
           "completed": false
         },
         {
           "id": "scam_25",
+          "name": "Con Artist",
+          "description": "Successfully scam 25 people.",
+          "type": "scams",
           "progress": 0,
           "goal": 25,
           "completed": false
         },
         {
           "id": "scam_100",
+          "name": "Scam Factory",
+          "description": "Successfully scam 100 people.",
+          "type": "scams",
           "progress": 0,
           "goal": 100,
           "completed": false
         },
         {
           "id": "scam_250",
+          "name": "Professional Criminal",
+          "description": "Successfully scam 250 people.",
+          "type": "scams",
           "progress": 0,
           "goal": 250,
           "completed": false
         },
         {
           "id": "scam_money_1000",
+          "name": "Dirty Business",
+          "description": "Steal $1,000 through scams.",
+          "type": "scammoney",
           "progress": 0,
           "goal": 1000,
           "completed": false
         },
         {
           "id": "scam_money_10000",
+          "name": "Scam Tycoon",
+          "description": "Steal $10,000 through scams.",
+          "type": "scammoney",
           "progress": 0,
           "goal": 10000,
           "completed": false
         },
         {
           "id": "big_score",
+          "name": "Big Score",
+          "description": "Successfully scam $100 in one attempt.",
+          "type": "bigscore",
           "progress": 0,
           "goal": 100,
           "completed": false
         },
         {
           "id": "report_1",
+          "name": "Caught in 4K",
+          "description": "Get reported once.",
+          "type": "reports",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "report_10",
+          "name": "Repeat Offender",
+          "description": "Get reported 10 times.",
+          "type": "reports",
           "progress": 0,
           "goal": 10,
           "completed": false
         },
         {
           "id": "report_50",
+          "name": "Public Enemy",
+          "description": "Get reported 50 times.",
+          "type": "reports",
           "progress": 0,
           "goal": 50,
           "completed": false
         },
         {
           "id": "negative",
+          "name": "Rock Bottom",
+          "description": "Reach a negative balance.",
+          "type": "negative",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "comeback",
+          "name": "Comeback Kid",
+          "description": "Recover from negative balance to $200+.",
+          "type": "comeback",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "balance_500",
+          "name": "Getting Rich",
+          "description": "Reach $500.",
+          "type": "highest",
           "progress": 0,
           "goal": 500,
           "completed": false
         },
         {
           "id": "balance_1000",
+          "name": "Big Money",
+          "description": "Reach $1,000.",
+          "type": "highest",
           "progress": 0,
           "goal": 1000,
           "completed": false
         },
         {
           "id": "balance_5000",
+          "name": "High Roller",
+          "description": "Reach $5,000.",
+          "type": "highest",
           "progress": 0,
           "goal": 5000,
           "completed": false
         },
         {
           "id": "top5",
+          "name": "Top 5",
+          "description": "Reach the top 5 on the money leaderboard.",
+          "type": "rank",
           "progress": 1,
           "goal": 5,
           "completed": false
         },
         {
           "id": "king",
+          "name": "Money King",
+          "description": "Reach #1 on the money leaderboard.",
+          "type": "rank",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "lucky50",
+          "name": "Lucky Worker",
+          "description": "Receive a $50 lucky payout.",
+          "type": "lucky50",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "lucky100",
+          "name": "Very Lucky",
+          "description": "Receive a $100 lucky payout.",
+          "type": "lucky100",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "jackpot",
+          "name": "Jackpot!",
+          "description": "Hit the $150 work jackpot.",
+          "type": "jackpot",
           "progress": 0,
           "goal": 1,
           "completed": false
@@ -1172,184 +1622,274 @@
     {
       "username": "darko217",
       "balance": 200,
-      "moneyRank": 4,
+      "moneyRank": 3,
       "achievementProgress": [
         {
           "id": "first_work",
+          "name": "First Paycheck",
+          "description": "Use !work once.",
+          "type": "work",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "work_25",
+          "name": "Part-Time Employee",
+          "description": "Use !work 25 times.",
+          "type": "work",
           "progress": 0,
           "goal": 25,
           "completed": false
         },
         {
           "id": "work_100",
+          "name": "Full-Time Employee",
+          "description": "Use !work 100 times.",
+          "type": "work",
           "progress": 0,
           "goal": 100,
           "completed": false
         },
         {
           "id": "work_250",
+          "name": "Work Machine",
+          "description": "Use !work 250 times.",
+          "type": "work",
           "progress": 0,
           "goal": 250,
           "completed": false
         },
         {
           "id": "work_500",
+          "name": "Workaholic",
+          "description": "Use !work 500 times.",
+          "type": "work",
           "progress": 0,
           "goal": 500,
           "completed": false
         },
         {
           "id": "work_1000",
+          "name": "Corporate Slave",
+          "description": "Use !work 1,000 times.",
+          "type": "work",
           "progress": 0,
           "goal": 1000,
           "completed": false
         },
         {
           "id": "work_1000_money",
+          "name": "Overtime",
+          "description": "Earn $1,000 from !work.",
+          "type": "workmoney",
           "progress": 0,
           "goal": 1000,
           "completed": false
         },
         {
           "id": "work_5000_money",
+          "name": "Career Employee",
+          "description": "Earn $5,000 from !work.",
+          "type": "workmoney",
           "progress": 0,
           "goal": 5000,
           "completed": false
         },
         {
           "id": "work_10000_money",
+          "name": "Workaholic Deluxe",
+          "description": "Earn $10,000 from !work.",
+          "type": "workmoney",
           "progress": 0,
           "goal": 10000,
           "completed": false
         },
         {
           "id": "scam_1",
+          "name": "First Scam",
+          "description": "Successfully scam someone.",
+          "type": "scams",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "scam_10",
+          "name": "Rookie Scammer",
+          "description": "Successfully scam 10 people.",
+          "type": "scams",
           "progress": 0,
           "goal": 10,
           "completed": false
         },
         {
           "id": "scam_25",
+          "name": "Con Artist",
+          "description": "Successfully scam 25 people.",
+          "type": "scams",
           "progress": 0,
           "goal": 25,
           "completed": false
         },
         {
           "id": "scam_100",
+          "name": "Scam Factory",
+          "description": "Successfully scam 100 people.",
+          "type": "scams",
           "progress": 0,
           "goal": 100,
           "completed": false
         },
         {
           "id": "scam_250",
+          "name": "Professional Criminal",
+          "description": "Successfully scam 250 people.",
+          "type": "scams",
           "progress": 0,
           "goal": 250,
           "completed": false
         },
         {
           "id": "scam_money_1000",
+          "name": "Dirty Business",
+          "description": "Steal $1,000 through scams.",
+          "type": "scammoney",
           "progress": 0,
           "goal": 1000,
           "completed": false
         },
         {
           "id": "scam_money_10000",
+          "name": "Scam Tycoon",
+          "description": "Steal $10,000 through scams.",
+          "type": "scammoney",
           "progress": 0,
           "goal": 10000,
           "completed": false
         },
         {
           "id": "big_score",
+          "name": "Big Score",
+          "description": "Successfully scam $100 in one attempt.",
+          "type": "bigscore",
           "progress": 0,
           "goal": 100,
           "completed": false
         },
         {
           "id": "report_1",
+          "name": "Caught in 4K",
+          "description": "Get reported once.",
+          "type": "reports",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "report_10",
+          "name": "Repeat Offender",
+          "description": "Get reported 10 times.",
+          "type": "reports",
           "progress": 0,
           "goal": 10,
           "completed": false
         },
         {
           "id": "report_50",
+          "name": "Public Enemy",
+          "description": "Get reported 50 times.",
+          "type": "reports",
           "progress": 0,
           "goal": 50,
           "completed": false
         },
         {
           "id": "negative",
+          "name": "Rock Bottom",
+          "description": "Reach a negative balance.",
+          "type": "negative",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "comeback",
+          "name": "Comeback Kid",
+          "description": "Recover from negative balance to $200+.",
+          "type": "comeback",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "balance_500",
+          "name": "Getting Rich",
+          "description": "Reach $500.",
+          "type": "highest",
           "progress": 0,
           "goal": 500,
           "completed": false
         },
         {
           "id": "balance_1000",
+          "name": "Big Money",
+          "description": "Reach $1,000.",
+          "type": "highest",
           "progress": 0,
           "goal": 1000,
           "completed": false
         },
         {
           "id": "balance_5000",
+          "name": "High Roller",
+          "description": "Reach $5,000.",
+          "type": "highest",
           "progress": 0,
           "goal": 5000,
           "completed": false
         },
         {
           "id": "top5",
+          "name": "Top 5",
+          "description": "Reach the top 5 on the money leaderboard.",
+          "type": "rank",
           "progress": 1,
           "goal": 5,
           "completed": false
         },
         {
           "id": "king",
+          "name": "Money King",
+          "description": "Reach #1 on the money leaderboard.",
+          "type": "rank",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "lucky50",
+          "name": "Lucky Worker",
+          "description": "Receive a $50 lucky payout.",
+          "type": "lucky50",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "lucky100",
+          "name": "Very Lucky",
+          "description": "Receive a $100 lucky payout.",
+          "type": "lucky100",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "jackpot",
+          "name": "Jackpot!",
+          "description": "Hit the $150 work jackpot.",
+          "type": "jackpot",
           "progress": 0,
           "goal": 1,
           "completed": false
@@ -1362,184 +1902,274 @@
     {
       "username": "test",
       "balance": 200,
-      "moneyRank": 5,
+      "moneyRank": 4,
       "achievementProgress": [
         {
           "id": "first_work",
+          "name": "First Paycheck",
+          "description": "Use !work once.",
+          "type": "work",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "work_25",
+          "name": "Part-Time Employee",
+          "description": "Use !work 25 times.",
+          "type": "work",
           "progress": 0,
           "goal": 25,
           "completed": false
         },
         {
           "id": "work_100",
+          "name": "Full-Time Employee",
+          "description": "Use !work 100 times.",
+          "type": "work",
           "progress": 0,
           "goal": 100,
           "completed": false
         },
         {
           "id": "work_250",
+          "name": "Work Machine",
+          "description": "Use !work 250 times.",
+          "type": "work",
           "progress": 0,
           "goal": 250,
           "completed": false
         },
         {
           "id": "work_500",
+          "name": "Workaholic",
+          "description": "Use !work 500 times.",
+          "type": "work",
           "progress": 0,
           "goal": 500,
           "completed": false
         },
         {
           "id": "work_1000",
+          "name": "Corporate Slave",
+          "description": "Use !work 1,000 times.",
+          "type": "work",
           "progress": 0,
           "goal": 1000,
           "completed": false
         },
         {
           "id": "work_1000_money",
+          "name": "Overtime",
+          "description": "Earn $1,000 from !work.",
+          "type": "workmoney",
           "progress": 0,
           "goal": 1000,
           "completed": false
         },
         {
           "id": "work_5000_money",
+          "name": "Career Employee",
+          "description": "Earn $5,000 from !work.",
+          "type": "workmoney",
           "progress": 0,
           "goal": 5000,
           "completed": false
         },
         {
           "id": "work_10000_money",
+          "name": "Workaholic Deluxe",
+          "description": "Earn $10,000 from !work.",
+          "type": "workmoney",
           "progress": 0,
           "goal": 10000,
           "completed": false
         },
         {
           "id": "scam_1",
+          "name": "First Scam",
+          "description": "Successfully scam someone.",
+          "type": "scams",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "scam_10",
+          "name": "Rookie Scammer",
+          "description": "Successfully scam 10 people.",
+          "type": "scams",
           "progress": 0,
           "goal": 10,
           "completed": false
         },
         {
           "id": "scam_25",
+          "name": "Con Artist",
+          "description": "Successfully scam 25 people.",
+          "type": "scams",
           "progress": 0,
           "goal": 25,
           "completed": false
         },
         {
           "id": "scam_100",
+          "name": "Scam Factory",
+          "description": "Successfully scam 100 people.",
+          "type": "scams",
           "progress": 0,
           "goal": 100,
           "completed": false
         },
         {
           "id": "scam_250",
+          "name": "Professional Criminal",
+          "description": "Successfully scam 250 people.",
+          "type": "scams",
           "progress": 0,
           "goal": 250,
           "completed": false
         },
         {
           "id": "scam_money_1000",
+          "name": "Dirty Business",
+          "description": "Steal $1,000 through scams.",
+          "type": "scammoney",
           "progress": 0,
           "goal": 1000,
           "completed": false
         },
         {
           "id": "scam_money_10000",
+          "name": "Scam Tycoon",
+          "description": "Steal $10,000 through scams.",
+          "type": "scammoney",
           "progress": 0,
           "goal": 10000,
           "completed": false
         },
         {
           "id": "big_score",
+          "name": "Big Score",
+          "description": "Successfully scam $100 in one attempt.",
+          "type": "bigscore",
           "progress": 0,
           "goal": 100,
           "completed": false
         },
         {
           "id": "report_1",
+          "name": "Caught in 4K",
+          "description": "Get reported once.",
+          "type": "reports",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "report_10",
+          "name": "Repeat Offender",
+          "description": "Get reported 10 times.",
+          "type": "reports",
           "progress": 0,
           "goal": 10,
           "completed": false
         },
         {
           "id": "report_50",
+          "name": "Public Enemy",
+          "description": "Get reported 50 times.",
+          "type": "reports",
           "progress": 0,
           "goal": 50,
           "completed": false
         },
         {
           "id": "negative",
+          "name": "Rock Bottom",
+          "description": "Reach a negative balance.",
+          "type": "negative",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "comeback",
+          "name": "Comeback Kid",
+          "description": "Recover from negative balance to $200+.",
+          "type": "comeback",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "balance_500",
+          "name": "Getting Rich",
+          "description": "Reach $500.",
+          "type": "highest",
           "progress": 200,
           "goal": 500,
           "completed": false
         },
         {
           "id": "balance_1000",
+          "name": "Big Money",
+          "description": "Reach $1,000.",
+          "type": "highest",
           "progress": 200,
           "goal": 1000,
           "completed": false
         },
         {
           "id": "balance_5000",
+          "name": "High Roller",
+          "description": "Reach $5,000.",
+          "type": "highest",
           "progress": 200,
           "goal": 5000,
           "completed": false
         },
         {
           "id": "top5",
+          "name": "Top 5",
+          "description": "Reach the top 5 on the money leaderboard.",
+          "type": "rank",
           "progress": 1,
           "goal": 5,
           "completed": false
         },
         {
           "id": "king",
+          "name": "Money King",
+          "description": "Reach #1 on the money leaderboard.",
+          "type": "rank",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "lucky50",
+          "name": "Lucky Worker",
+          "description": "Receive a $50 lucky payout.",
+          "type": "lucky50",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "lucky100",
+          "name": "Very Lucky",
+          "description": "Receive a $100 lucky payout.",
+          "type": "lucky100",
           "progress": 0,
           "goal": 1,
           "completed": false
         },
         {
           "id": "jackpot",
+          "name": "Jackpot!",
+          "description": "Hit the $150 work jackpot.",
+          "type": "jackpot",
           "progress": 0,
           "goal": 1,
           "completed": false
@@ -1557,33 +2187,33 @@
       "rank": 1
     },
     {
-      "username": "dipeshlovesbooby",
-      "balance": 205,
-      "rank": 2
-    },
-    {
       "username": "ti_84calculator",
       "balance": 200,
-      "rank": 3
+      "rank": 2
     },
     {
       "username": "darko217",
       "balance": 200,
-      "rank": 4
+      "rank": 3
     },
     {
       "username": "test",
       "balance": 200,
-      "rank": 5
+      "rank": 4
     },
     {
       "username": "creatisbot",
       "balance": 189,
-      "rank": 6
+      "rank": 5
     },
     {
       "username": "streamelements",
       "balance": 146,
+      "rank": 6
+    },
+    {
+      "username": "dipeshlovesbooby",
+      "balance": 135,
       "rank": 7
     }
   ],
