@@ -14,6 +14,10 @@
 
 <style>
 
+/* =====================================================
+   BASE
+===================================================== */
+
 * {
   box-sizing: border-box;
 }
@@ -42,9 +46,9 @@ body {
 }
 
 
-/* ================================================
+/* =====================================================
    CONTAINER
-================================================ */
+===================================================== */
 
 .container {
 
@@ -60,9 +64,9 @@ body {
 }
 
 
-/* ================================================
+/* =====================================================
    HEADER
-================================================ */
+===================================================== */
 
 .header {
 
@@ -97,9 +101,9 @@ h1 {
 }
 
 
-/* ================================================
+/* =====================================================
    SEARCH
-================================================ */
+===================================================== */
 
 .search-box {
 
@@ -170,9 +174,9 @@ h1 {
 }
 
 
-/* ================================================
+/* =====================================================
    PROFILE
-================================================ */
+===================================================== */
 
 .profile {
 
@@ -221,6 +225,10 @@ h1 {
 }
 
 
+/* =====================================================
+   STATS
+===================================================== */
+
 .stats {
 
   display: grid;
@@ -267,9 +275,9 @@ h1 {
 }
 
 
-/* ================================================
-   PROGRESS SUMMARY
-================================================ */
+/* =====================================================
+   OVERALL PROGRESS
+===================================================== */
 
 .summary {
 
@@ -320,9 +328,9 @@ h1 {
 }
 
 
-/* ================================================
+/* =====================================================
    FILTERS
-================================================ */
+===================================================== */
 
 .filters {
 
@@ -363,9 +371,9 @@ h1 {
 }
 
 
-/* ================================================
+/* =====================================================
    ACHIEVEMENTS
-================================================ */
+===================================================== */
 
 .achievements {
 
@@ -493,7 +501,7 @@ h1 {
 
 }
 
-.completed
+.achievement.completed
 .achievement-progress-fill {
 
   background:
@@ -506,9 +514,9 @@ h1 {
 }
 
 
-/* ================================================
+/* =====================================================
    LOADING / ERROR
-================================================ */
+===================================================== */
 
 .message {
 
@@ -527,9 +535,9 @@ h1 {
 }
 
 
-/* ================================================
+/* =====================================================
    FOOTER
-================================================ */
+===================================================== */
 
 .footer {
 
@@ -544,9 +552,9 @@ h1 {
 }
 
 
-/* ================================================
+/* =====================================================
    MOBILE
-================================================ */
+===================================================== */
 
 @media (
   max-width: 700px
@@ -607,6 +615,8 @@ h1 {
 
 <div class="container">
 
+
+  <!-- HEADER -->
 
   <div class="header">
 
@@ -809,9 +819,8 @@ h1 {
 
 <script>
 
-
 /* =====================================================
-   APPS SCRIPT URL
+   APPS SCRIPT API
 ===================================================== */
 
 const API_URL =
@@ -848,10 +857,9 @@ function money(value) {
 function searchPlayer() {
 
   const input =
-    document
-      .getElementById(
-        "usernameInput"
-      );
+    document.getElementById(
+      "usernameInput"
+    );
 
 
   const username =
@@ -927,11 +935,17 @@ async function loadPlayer(
 
   try {
 
+    /*
+       IMPORTANT:
+       The Apps Script endpoint is
+       action=player, NOT action=profile.
+    */
+
     const response =
       await fetch(
 
         API_URL +
-        "?action=profile&user=" +
+        "?action=player&user=" +
         encodeURIComponent(
           username
         )
@@ -942,7 +956,8 @@ async function loadPlayer(
     if (!response.ok) {
 
       throw new Error(
-        "API request failed."
+        "API request failed: HTTP " +
+        response.status
       );
 
     }
@@ -966,13 +981,13 @@ async function loadPlayer(
 
 
     /*
-      Put username into URL.
-      This makes profiles shareable.
+       Make profile shareable:
+
+       yoursite.com/?user=username
     */
 
     const newUrl =
-      window.location
-        .pathname +
+      window.location.pathname +
       "?user=" +
       encodeURIComponent(
         username
@@ -987,12 +1002,54 @@ async function loadPlayer(
       );
 
 
-    renderPlayer();
+    currentFilter =
+      "all";
 
+
+    document
+      .querySelectorAll(
+        ".filter"
+      )
+      .forEach(
+        function(button) {
+
+          button
+            .classList
+            .remove(
+              "active"
+            );
+
+        }
+      );
+
+
+    const allButton =
+      document.querySelector(
+        '[data-filter="all"]'
+      );
+
+
+    if (allButton) {
+
+      allButton
+        .classList
+        .add(
+          "active"
+        );
+
+    }
+
+
+    renderPlayer();
 
   }
 
   catch (error) {
+
+    console.error(
+      error
+    );
+
 
     showMessage(
       error.message ||
@@ -1038,6 +1095,7 @@ function renderPlayer() {
       "profileName"
     )
     .textContent =
+      "@" +
       currentPlayer.username;
 
 
@@ -1060,22 +1118,41 @@ function renderPlayer() {
       currentPlayer.moneyRank;
 
 
+  /*
+     NEW API FIELD:
+     completed
+  */
+
+  const completed =
+    Number(
+      currentPlayer.completed ||
+      0
+    );
+
+
+  const total =
+    Number(
+      currentPlayer.totalAchievements ||
+      0
+    );
+
+
   document
     .getElementById(
       "achievementCount"
     )
     .textContent =
-      currentPlayer.achievementCount +
+      completed +
       "/" +
-      currentPlayer.totalAchievements;
+      total;
 
 
   const percentage =
-    currentPlayer.totalAchievements
+    total
       ? Math.round(
           (
-            currentPlayer.achievementCount /
-            currentPlayer.totalAchievements
+            completed /
+            total
           ) * 100
         )
       : 0;
@@ -1112,14 +1189,31 @@ function renderPlayer() {
 function renderAchievements() {
 
   const container =
-    document
-      .getElementById(
-        "achievements"
-      );
+    document.getElementById(
+      "achievements"
+    );
 
 
   container.innerHTML =
     "";
+
+
+  if (
+    !currentPlayer ||
+    !Array.isArray(
+      currentPlayer.achievements
+    )
+  ) {
+
+    container.innerHTML = `
+      <div class="message error">
+        No achievement data found.
+      </div>
+    `;
+
+    return;
+
+  }
 
 
   const achievements =
@@ -1137,7 +1231,9 @@ function renderAchievements() {
 
 
     const completed =
-      achievement.completed;
+      Boolean(
+        achievement.completed
+      );
 
 
     const progress =
@@ -1164,7 +1260,12 @@ function renderAchievements() {
       );
 
 
-    let filterMatch = true;
+    /*
+       FILTER
+    */
+
+    let filterMatch =
+      true;
 
 
     if (
@@ -1234,18 +1335,23 @@ function renderAchievements() {
 
 
     /*
-      Money achievements
+       MONEY ACHIEVEMENTS
     */
 
     if (
+
       achievement.type ===
         "workmoney" ||
+
       achievement.type ===
         "scammoney" ||
+
       achievement.type ===
         "highest" ||
+
       achievement.type ===
         "bigscore"
+
     ) {
 
       progressText =
@@ -1257,7 +1363,7 @@ function renderAchievements() {
 
 
     /*
-      Rank achievements
+       RANK ACHIEVEMENTS
     */
 
     else if (
@@ -1288,7 +1394,7 @@ function renderAchievements() {
 
 
     /*
-      Normal achievements
+       NORMAL ACHIEVEMENTS
     */
 
     else {
@@ -1430,10 +1536,9 @@ function showMessage(
 ) {
 
   const element =
-    document
-      .getElementById(
-        "message"
-      );
+    document.getElementById(
+      "message"
+    );
 
 
   element
