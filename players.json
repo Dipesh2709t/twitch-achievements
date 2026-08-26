@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-25T23:06:21.012Z",
+  "updated": "2026-08-26T06:35:05.467Z",
   "totalPlayers": 7,
   "totalAchievements": 30,
   "achievements": [
@@ -217,8 +217,8 @@
   "players": [
     {
       "username": "dipeshlovesbooby",
-      "balance": 275,
-      "moneyRank": 1,
+      "balance": 205,
+      "moneyRank": 2,
       "achievementProgress": [
         {
           "id": "first_work",
@@ -324,19 +324,19 @@
         },
         {
           "id": "report_1",
-          "progress": 0,
+          "progress": 1,
           "goal": 1,
-          "completed": false
+          "completed": true
         },
         {
           "id": "report_10",
-          "progress": 0,
+          "progress": 1,
           "goal": 10,
           "completed": false
         },
         {
           "id": "report_50",
-          "progress": 0,
+          "progress": 1,
           "goal": 50,
           "completed": false
         },
@@ -378,9 +378,9 @@
         },
         {
           "id": "king",
-          "progress": 1,
+          "progress": 0,
           "goal": 1,
-          "completed": true
+          "completed": false
         },
         {
           "id": "lucky50",
@@ -403,7 +403,7 @@
       ],
       "achievementCount": 1,
       "achievements": [
-        "king"
+        "report_1"
       ],
       "achievementRank": 1
     },
@@ -600,7 +600,7 @@
     {
       "username": "nickbrawls",
       "balance": 224,
-      "moneyRank": 2,
+      "moneyRank": 1,
       "achievementProgress": [
         {
           "id": "first_work",
@@ -760,9 +760,9 @@
         },
         {
           "id": "king",
-          "progress": 0,
+          "progress": 1,
           "goal": 1,
-          "completed": false
+          "completed": true
         },
         {
           "id": "lucky50",
@@ -783,9 +783,11 @@
           "completed": false
         }
       ],
-      "achievementCount": 0,
-      "achievements": [],
-      "achievementRank": 4
+      "achievementCount": 1,
+      "achievements": [
+        "king"
+      ],
+      "achievementRank": 2
     },
     {
       "username": "creatisbot",
@@ -975,7 +977,7 @@
       ],
       "achievementCount": 0,
       "achievements": [],
-      "achievementRank": 2
+      "achievementRank": 3
     },
     {
       "username": "ti_84calculator",
@@ -1355,7 +1357,7 @@
       ],
       "achievementCount": 0,
       "achievements": [],
-      "achievementRank": 3
+      "achievementRank": 4
     },
     {
       "username": "test",
@@ -1550,13 +1552,13 @@
   ],
   "moneyLeaderboard": [
     {
-      "username": "dipeshlovesbooby",
-      "balance": 275,
+      "username": "nickbrawls",
+      "balance": 224,
       "rank": 1
     },
     {
-      "username": "nickbrawls",
-      "balance": 224,
+      "username": "dipeshlovesbooby",
+      "balance": 205,
       "rank": 2
     },
     {
@@ -1592,17 +1594,17 @@
       "rank": 1
     },
     {
-      "username": "creatisbot",
-      "completed": 0,
+      "username": "nickbrawls",
+      "completed": 1,
       "rank": 2
     },
     {
-      "username": "darko217",
+      "username": "creatisbot",
       "completed": 0,
       "rank": 3
     },
     {
-      "username": "nickbrawls",
+      "username": "darko217",
       "completed": 0,
       "rank": 4
     },
